@@ -1,0 +1,35 @@
+function input_check(form){//폼양식으로 정보를 입력받은걸 불러오는 방식
+        // let jumin1 = document.input_form.jumin1.value;   이방식은  input_check()형식으로 파라메터로 form으로 설정하지않은 방식
+        // let jumin2 = document.input_form.jumin2.value;
+        let jumin1 = form.jumin1.value;
+        let jumin2 = form.jumin2.value; //이렇게 하려면 파라메터로 전해야한다.
+        let jumin = jumin1 + "-" + jumin2; //prompt("주민등록번호를 입력하세요");
+        alert(jumin);
+        let w=2, hap=0, chk;
+
+        for (let i = 0; i<jumin.length-1; i++) //합 구하기
+        {
+            if (i == 6)
+            continue;
+
+            hap += parseInt(jumin.substring(i, i+1)) * w;
+
+            w++
+            if(w == 10)
+                w =2;
+        }
+        chk = 11 - (hap % 11);
+
+        if(chk == 10)
+            chk = 0;
+        else if (chk == 11)
+            chk = 1;
+
+        if (chk == parseInt(jumin.substring(13, 14)))
+            str = jumin + "(O)";
+        else 
+            str = jumin + "(X)";
+            alert(str);
+    }
+        // console.log(str);
+      

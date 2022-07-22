@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12장함수</title>
+</head>
+<body>
+    
+    <script>
+function add(x,y){
+    return x + y;
+}
+var res = add(2, 5);
+//function 함수명 (입력파라메터){
+    //함수내용
+//    [return 반환값];
+// }
+// 함수명(파라메터); <= 함수호출문
+
+//파라메터(인수)
+//1. 형식매개변수 (가인수) - 함수를 정의할때 기술
+//2. 실매개 변수 (실인수) - 함수를 호출할때 기술
+console.log(add(2, 5)); //함수 호출문
+console.log(res); //함수호출문
+//함수를 사용하면 재활용하거나, 중복된 코드를 피할 수 있다. 
+
+function add(x, y){
+    return x + y;
+}
+    var result = 0
+    result = add(1, 2)
+    result = add(2, 3)
+    result = add(4, 5)
+//          add는 함수의 이름 식별자이다.
+    console.log(add(5, 6))
+    //함수는 객체타입이다. 따라서 식별자를 부일 수 있다. 함수 이름은 변수 이름과 마찬가지로 함수 자신의 역할을 잘 설명해야한다. 적절한 함수 이름은 함수의 내부 코드를 이해하지 않고도 함수의 역할을 하악할 수 있게 돕는다. 이는 코드의 가독성을 향상시킨다.
+//12.3
+// 함수 리터럴
+
+var f = function (x, y){//          add는 함수의 이름 식별자이다. 생략해도 ㄱㅊ
+    return x + y;                   // 함수이름을 안지어 주면 '익명함수'
+};//함수 정의 후 세미콜론을 붙여 준다.
+// 함수이름을 붙여 주는 경우에는 변수선언의 형식이 아닌 함수선언의 형식에서 사용한다. 변수선언의 형식안에 함수선언문이 들어갈경우 함수이름을 생략하기도 한다.
+var res = f(3, 5)//함수 호출문
+console.log(res);
+
+//12.4 함수정의 p.158
+
+function add(x, y){ //함수 선언문
+    return x + y;
+}
+
+var add = function(x, y){ //함수 표현식
+    return x + y
+}
+
+var add = new Function( 'x' ,'y', 'return x + y'); //함수 정의 방식
+
+var add = (x, y) => x + y; //화살표함수
+
+var f = () => 2 + 7
+var res = f()
+console.log(res)
+//12.4.1 함수 선언문
+//함수 선언문에서는 함수의 이름을 반드시 기술 해야한다. 
+//함수 리터럴에서는 함수의 이름을 기술해되고 기술하지 않아도 된다.
+
+function add(x, y){
+    return x + y;
+}
+console.dir(add);
+
+//예제 12-11
+var add = function foo(x, y){
+    return x + y;
+};
+console.log(add(2, 5)); // 변수안의 함수 add 
+console.log(add); // 변수 add
+// console.log(foo(2, 5)); 리터럴에서 함수 이름이 아니라 변수(표현식)를 사용하자
+console.log(add(2, 5)) 
+//함수 선언문
+function add(x, y){
+    return x + y ;
+}
+//함수 표현식 (함수를 변수에 대입, 대입전 var sub만 전처리되었다. 변수에 아무런 함수도 아직 대입되지않았다.)
+var sub = function (x, y)
+{
+    return x - y;
+}    
+console.dir(add);
+console.dir(sub);
+
+console.log(add(2, 5))
+console.log(sub(2, 5))
+
+
+
+// 자바스크립트 실행 순서
+//1. 실행전 선언문만을 먼저 실행한다.(전처리)
+//2. 코드를 순서대로 실행한다.(본문 실행) 
+
+// 자바스크립트는 먼적 기술한 문장을 먼저 실행한다.
+// 선언문을 먼저 처리하고 실행을 한다.
+// 변수 선언에 대한 할당은 실행 할때 할당이 된다.
+// 변수호이스팅 함수선언문인 순서상 뒤에 있어도 앞에 존재하는것처럼 동작한다는 뜻!
+
+//12.4.5 p. 167 화살표 함수 es6에서 도입된 화살표 함수 는 function대신 화살표를 사용해 좀 더 간략한 방법으로 함수를 선언할 수 있다. 화살표 함수는 항상 익명 함수로 정의한다.
+
+
+//12.5 함수 호출
+
+function add(x, y){
+    return x + y;
+} 
+var result = add(1, 2); //함수 호출문 
+//           실매개 변수
+console.log(result)
+
+function add(x, y) {
+    console.log(x, y);
+    return x + y;
+}
+
+add(2, 5);
+console.log(2, 5);
+add(2)
+console.log(add(2)) // 2 + undefinded NaN출력 됨 
+
+//  add(x, y=0)
+add(2, 5) //y=0 을 무시하고 y = 5를 대입한다. y=0 디폴트 매개변수라고한다. 디폴트는 마지막에 써줘야한다.
+
+
+//형식 매개 변수에 사용된 변수는 해당 변수 내에서만 사용가능하다. 함수 실행후 소멸된다.
+//형식 매개변수의 사용은 해당함수의 내부로 제한된다. 
+//노트 정리 매우 중요해요 복습할 때 다시 해봐야지 예제는 다시 책보고 연습하십쇼 다른 예제들도 파일 저장했다가 다시 연습하십쇼. 수업에 집중하십쇼. 집중하고 왔다갔다 하지말자 좀 옙 수업이 제일 중요하다 ㅇㅋ? ㅇㅋ 수업내용을 잘 새겨 들으면 뼈가 되고 살이 된다~ 이말이다~.  내가 과연 목숨걸고 열심히 하고 있는가? 김건 이대로 괜찮은가? 시간으 표율적으로 쓰고 있는가? 너는 지금 어떤 삶을 살고 있는가? 일론머스크는 하루에 2시간자고 일하는데 나는 일론도 아닌데 이렇게 하는게 맞는가? 맞아 안맞아 확마 똑바로 하란 말이야 ㅇㅋ? ㅇㅋ 열심히 하란말이야!! 진짜 죽기 직전까지 하란말이야 공부 하라 이말이야!! ㅈ도 못하면서 왜 열심히 안하냐 이말이야 너보다 잘하는 사람들이 더 열심히하는데 지금 뭐하는거야 ㅅㅂ럼아 열심히 해야지!! 좀 !! 제발 좀!! 으이!? 마이크는 항상 꺼져 있네 ㅎ 온라인 사람들 복장 터짐 기회는 준비된 사람만 쟁취할 수 있다. 진인사대천명 
+
+function add(a = 0, b = 0, c = 0){
+    return a + b + c;
+}
+console.log(add(1, 2, 3));
+console.log(add(1, 2));
+console.log(add(1));
+console.log(add());
+
+//12.5.3 반환문 p.173
+// function multuply(x, y){
+//     if (x - y < 0){
+//     return x * y }; //반환문
+    
+//     else {
+//      return x / y;
+//     }
+// }
+
+// var result = multuply(3, 5)
+// console.log(result)
+
+
+//12.6 참조에 의한 전달과 외부 상태의 변경 p. 175
+
+
+function changeVal(primitive, obj){
+    primitive += 100;
+    obj.name = 'kim';
+}
+
+var num = 100
+var person = {name: 'lee'};
+
+changeVal(num, person)
+console.log(num)
+console.log(name)
+console.log(num, name)
+console.log(num)
+console.log(person)
+
+// (function foo(){
+//     var a = 3;
+//     var b = 5;
+//     console.log(a, b);
+//     return a * b;
+    
+// }())
+
+
+var res = function (a, b){
+    var a = 3;
+    var b = 5;
+    console.log(a, b);
+    return a * b;
+    
+}()
+
+
+// 12.7.4 콜백 함수 나중에 해용
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

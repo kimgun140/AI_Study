@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>Insert title here</title>
+<script>
+//이부분을 완성 할것 (필요하면 추가함수 만드는 것도 가능)
+//id가 영문자인지 검사
+// function check_input()
+// {(id>='a' && id <='z'|| id>= 'A' && id <= 'Z' || id>= '0' && id <= '9')}
+
+// 처리조건
+// 1. 아이디, 비밀번호, 비밀번호확인은 최소 6자에서 최대 10자리까지 가능하며 숫자와 영문자로만 구성한다.
+// 2. 주민번호는 올바른 주민번호인지 검사하는 과정을 포함한다.
+// 3. 성별은 체크 여부를 검사한다.
+// 4. 전화번호는 입력받은 값이 숫자인지 검사한다. (3-4-4)
+// 5. 이메일 입력 여부 확인한다.
+// 6. 취미는 체크여부를 검사한다.(하나이상 체크)
+// 7. 자기소개는 입력여부를 검사한다.
+
+function num_check(str) //숫자가 아닌게 있는지 확인
+{
+	var i;
+	for (i =0; i<str.length; i++)
+	{
+		if((str.substring(i, i+1) < "0" || str.substring(i, i+1) > "9"))
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+function check_input()
+
+{
+	var str = document.input_form.id.value;
+if (str == "")
+{
+	alert("아이디를 입력하세요!!!");
+	document.input_form.id.focus();
+	return false;
+}
+else{
+	if (str.length < 6 || str.length > 10) //입력길이 검사
+	{
+		alert ("아이디 길이 확인(6~10자리)!!!");
+		document.input_form.id.focus();
+		return false;
+	}
+	else {
+		for (i=0; i < str.length; i++) //숫자 또는 영문자 인지 검사
+	{
+		ch = str.substring(i, i+1);
+		if (!((ch >= "0" && ch <= "9") ||(ch >= "a" && ch<= "z") || (ch >= "A" && ch <= "Z")))
+		{
+			alert("특수문자가 포함, 다시 입력!!!");
+			document.input_form.id.focus();
+			return false;
+		}
+	}
+	}
+}
+chk_list = "id" + str +"\n" ;
+
+
+ 	//비밀번호
+	
+	var pass = document.input_form.pw.value;
+	if( pass == "")
+	{
+		alert("비밀번호를 입력하세요!!!")
+		document.input_form.pw.foucus();
+		return false;
+	}
+	else{
+		if (pass.length < 6 || pass.length > 10) //입력길이 검사
+	{
+		alert ("비밀번호 길이 확인(6~10자리)!!!");
+		document.input_form.pw.focus();
+		return false;
+	}
+		for (i = 0; i <pass.length; i++)
+		{
+			ch2 = pass.substring(i, i+1);
+			if (!((ch2 >= "0" && ch2 <= "9") ||(ch2 >= "a" && ch2 <= "z") || (ch2 >= "A" && ch2 <= "Z")))
+			{
+			alert("특수문자가 포합, 다시입력!!!");
+			
+			document.input_form.pw.focus();
+			return false;
+				
+			}
+		} chk_list += "pw" + pass +"\n" ;
+
+	}
+
+//비밀번호 확인
+ {
+	var pass2 = document.input_form.pw2.value;
+	var pass =  document.input_form.pw.value;
+	if( pass2 !== pass){
+		alert("비밀번호 확인을 확인하세요!!!")
+		document.input_form.pw2.foucus();
+		return false;
+	}
+	
+
+ }
+//주민번호
+
+	if (document.input_form.jumin1.value == "")
+	{
+		alert("주민번호(앞자리)를 입력하세요!!!");
+		document.input_form.jumin1.focus();
+		return false;
+	}
+	else if(document.input_form.jumin2.value == "")
+	{	
+		alert("주민번호(뒷자리)를 입력하세요!!!");
+		document.input_form.jumin2.focus();
+		return false;
+	}
+	else
+	{
+		var str1 = document.input_form.jumin1.value;
+		var str2 = document.input_form.jumin2.value;
+		if (str1.length != 6)
+		{
+			alert('주민번호 확인 (생년월일 6자리)!!!');
+			document.input_form.jumin1.focus();
+			return false;
+		}
+		else if (str2.length = !7)
+		{
+			alert('주민번호 확인 (7자리!!!');
+			document.input_form.jumin2.focus();
+			return false;
+		}
+		else 
+		{
+			str = str1 + str2;
+			var w = 2,hap = 0, chk ;
+			for (i = 0; i < str.length; i++)
+			{
+				ch = str.substring(i, i+1);
+				if(!(ch >= "0" && ch <= "9"))
+				{ 
+					alert("특수문자가 포함, 다시 입력!!!");
+					document.input_form.jimin1.focus();
+					return false;
+				}
+				else
+				{
+					if( i == (str.length - 1))
+					continue;
+					hap += parseInt(ch) * w;
+					w++
+					if (w== 10)
+					w = 2;
+				}
+			}
+			chk = 11 - (hap % 11);
+			if (chk == 10)
+			chk = 0;
+			else if (chk == 11)
+			chk = 1;
+			if (chk != parseInt(str.substring(str.length-1, str.length)))
+			{
+				alert("주민번호 오류, 다시입력!!!");
+				document.input_form.jimin1.focus();
+				return false;
+			}
+		}
+	}
+
+	chk_list += "주민번호=" + str1 + "-" + str2 + "\n";
+	document.input_form.jumin1.focus();
+	//성별 체크
+	if (!(document.input_form.gender[0].checked == true
+			|| document.input_form.gender[1].checked == true))
+		{
+			alert("성별을 선택하세요!!!");
+			return false;
+		}
+	//성별체크
+		if (document.input_form.gender[0]. checked == true)
+			str = document.input_form.gender[0].value;
+		else
+			str = document.input_form.gender[1].value;
+		chk_list += "성별=" + str + "\n";
+		
+		return false
+
+	//전화번호
+		
+		if(document.input_form.tel1.value.length == 3)
+		{
+			if(!num_check(document.input_form.tel1.value)) //숫자인지 체크 num_check가 숫자인지 확인 함수
+			{
+			alert("전화번호 앞 3자리 입력오류!!!")
+			document.input_form.tel1.focus();
+			return false;
+			}
+		}
+		else 
+		{
+			alert("전화번호 앞 3자리를 입력하세요!!!")
+			document.input_form.tel1.focus();
+			return false
+		}
+		
+
+		if(document.input_form.tel2.value.length == 4)
+		{
+			if(!num_check(document.input_form.tel2.value )) //숫자인지 체크 num_check가 숫자인지 확인 함수
+		{	
+			alert("전화번호 중간 4자리 입력오류!!!")
+			document.input_form.tel2.focus();
+			return false;
+		}
+	}
+		else
+		{
+			alert("전화번호 중간 4자리를 입력하세요!!!")
+			document.input_form.tel2.focus();
+			return false
+		}
+
+		if(document.input_form.tel3.length == 4)
+		{
+			if(!num_check(document.input_form.tel3.length)) //숫자인지 체크 num_check가 숫자인지 확인 함수
+			alert("전화번호 마지막 4자리 입력오류!!!")
+			document.input_form.tel3.focus();
+			return false;
+		}
+		else
+		{
+			alert("전화번호 마지막 4자리를 입력하세요!!!")
+			document.input_form.tel3.focus();
+			return false
+		}
+		chk_list += "전화번호=" + document.input_form.tel1.value +document.input_form.tel2.value + document.input_form.tel3.value 
+
+
+		//이메일 앞부분 체크
+		if (document.input_form.email1.value = "")
+		{
+			alert("이메일 앞부분을 입력하세요");
+			document.input_form.email1.focus();
+			return false;
+		}
+		//이메일 뒷부분 체크
+		if (document.input_form.email2.value = "")
+		{
+			alert("이메일 뒷부분을 입력하세요");
+			document.input_form.email2.focus();
+			return false;
+		}
+		chk_list += "이메일=" + document.input_form.email1.value + "@" + documents.input_form.email2.value + "\n"
+
+
+		str = "";
+		for (i = 0; i < document.input_form.hobby.length; i++)
+		{
+			if(document.input_form.hobby[i].value == true)
+			str += document.input_form.hobby[i].value + "";
+		}
+		chk_list += '자기소개=' + document.input_form.intro.value + "\n"
+
+		alert(chk_list)
+
+
+
+
+
+
+	// str = str1 + str;
+	// var w = 2, hap = 0, chk;
+	// for (i=0; i<str.length; i++)
+	// {
+	// 	ch =str.substring(i, i+1);
+	// 	if(!(ch))
+
+	// }
+
+}
+
+
+
+
+
+
+//}//function check_input() 
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+
+<form name="input_form" method="post">
+<table align="center" border="1">
+<tr>
+	<td width="110">아이디</td>
+	<td width="400">
+		<input type="text" name="id" size="30" style="ime-mode:inactive" 
+			required placeholder="최소6~최대10, 숫자와알파벳만 사용">
+	</td>
+</tr>
+<tr>
+	<td width="110">비밀번호</td>
+	<td width="400">
+		<input type="password" name="pw" size="30" style="ime-mode:inactive"
+			placeholder="최소6~최대10, 숫자와알파벳만 사용">
+	</td>
+</tr>
+<tr>
+	<td width="110">비밀번호 확인</td>
+	<td width="400">
+		<input type="password" name="pw2" size="30" style="ime-mode:inactive"
+			placeholder="최소6~최대10, 숫자와알파벳만 사용">
+	</td>
+</tr>
+<tr>
+	<td width="110">주민번호</td>
+	<td width="400"><input type="text" name="jumin1" size="6" maxlength="6"> - 
+	    <input type="text" name="jumin2" size="7" maxlength="7">
+	</td>
+</tr>
+<tr>
+	<td width="110">성별</td>
+	<td width="400"><input type="radio" name="gender" value="남자">남자 
+		<input type="radio" name="gender" value="여자">여자 
+	</td>
+</tr>
+<tr>
+	<td>전화번호</td>
+	<td><input type="tel" name="tel1" size="3" maxlength="3"> -
+		<input type="tel" name="tel2" size="4" maxlength="4"> -
+		<input type="tel" name="tel3" size="4" maxlength="4">
+	</td>
+</tr>
+<tr>
+	<td width="110">이메일</td>
+	<td width="400"><input type="text" name="email1" size="10" style="ime-mode:inactive"> @ 
+	    <select name="email2">
+	    	<option value="">메일주소선택
+	    	<option value="hanmail.net">hanmail.net
+	    	<option value="naver.com">naver.com
+	    	<option value="nate.com">nate.com
+	    </select>
+	</td>
+</tr>
+<tr>
+	<td width="110">취미</td>
+	<td width="400">
+		<input type="checkbox" name="hobby" value="등산">등산 
+		<input type="checkbox" name="hobby" value="독서">독서 
+		<input type="checkbox" name="hobby" value="스키">스키
+		<input type="checkbox" name="hobby" value="영화">음악 
+		<input type="checkbox" name="hobby" value="영화">영화
+	</td>
+</tr>
+<tr>
+	<td width="110">자기소개</td>
+	<td width="400"><textarea name="intro" rows="5" cols="50" style="ime-mode:active"></textarea></td>
+</tr>
+<tr>
+	<td colspan="2" align="center" width="500">
+		<input type="button" value="입력" onclick="check_input() ;">
+		<input type="reset" name="reset" value="취소">
+	</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

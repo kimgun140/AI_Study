@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07.05</title>
+</head>
+<body>
+    <script>
+
+        // var arr = new Array(1,10.5,"aaa",{name: "lee"},1,1,1); 
+        // 
+        // var hap = 0;
+        // for (let i = 0; i < arr.length; i++);
+
+        //     console.log(arr[i])
+        // arr[4] = "bbb";
+        // for (let i = 0; i < arr.length; i++)
+        // console.log(arr[i])
+        //자바스크립트 배열은 다른 언어의 배열과 다르다. 다른 언어의 배열은 생성되면 고정되는 반면, 자바스크립트의 배열은 생성 후 동적으로 변화가능하다
+        
+        //27.4 배열생성 
+    //     //27.4.2 Array 생성자 함수  
+
+    //     var arr1 = []; // var arr1 = new Array() 
+    //     console.log(arr1.length);
+    //     arr1[0] = 10;
+    //     arr1[1] = "AAA";
+    //     console.log(arr1.length);
+    //     console.log(arr1[0]);
+    //     console.log(arr1[1]);
+    //     console.log("==================");
+    //     arr1[3] = "BBB";
+    //     console.log(arr1.length);
+    //     console.log("==================");
+    
+    //     for (let i = 0; i < arr1.length; i++)
+    //         console.log(arr1[i]);
+    
+    //         delete arr1[1]; //자바 배열은 삭제하면 값만 삭제한다. 다른 언어에서는 삭제된 값의 자리를 뒷 순서가 대체한다.
+    //     for (let i = 0; i < arr1.length; i++){;
+    //     console.log(arr1[i]);
+    // }
+    
+
+
+        const arr = [1, 2, 3, 4, 5]; //const로 배열의 값 변경못함
+        // arr[0] = 10; 객체 arr의 내부 요소를 바꾸는 것은 const를 사용해도 ㄱㅊ지만
+        // arr = [10, 20, 30]; 객체 arr 전체를 바꾸는 것은 const를 사용했기 때문에 오류가 발생한다. 객체가 따로 만들어지며 메모리에서 주소값을 가지게 되는데 객체 전체를 바꾼다는 것은 주소를 바꾼다는 의미이다. 
+        //const는 객체의 주소르 고정시킨다는 기능도 있다.
+        //
+        console.log(arr.length);
+        console.log(arr);
+        arr.splice(1, 3); // splice 1위치부터 3개의 값과 공간을 삭제한다. (1, 3) 하지만 객체 자체의 주소는 변하지 않는다. 역시 const로 고정된 주소도 변하지 않기 때문에 오류도 발생하지 않는다.
+        console.log(arr.length);
+        console.log(arr);
+        for ( let i = 0; i < arr; i++){
+            console.log(arr[i])
+        }
+
+        //27.8 배열 메서드
+        //객체 = 속성(데이터) + 매서드(함수)
+        // 배열 => 특수한 구조의 객체 
+        //배열 => 속성(배열)
+
+        //27.8.1 Array.isArray
+
+        // 27-44
+        const arr1 = [1, 2, 3, 4]
+        //indexOf 찾기
+        arr.indexOf(2);
+        arr.indexOf(4); //-1 요소가 없으므로 false 값 -1 반환
+        arr.indexOf(2, 2); // 2 첫번째 원소는 검색 시작위치 두번쨰 숫자는 검색할 순서
+        arr.indexOf(2);
+
+        const arr2 = [1, 2];
+        let result = arr2.push(3); //push 더하는것 가장 뒤에 값을 더해준다. 
+        console.log(result);
+        console.log(arr2);
+
+        const arr3 = [1, 2];
+        console.log(arr3);
+        let result2 = arr3.pop(); // pop 공간자체를  가장 뒤부터 삭제한다. 
+        console.log(result2);
+        console.log(arr3) 
+
+        const arr4 = [];
+        arr4.push(1);
+        arr4.push(2);
+        arr4.push(3);
+        for (let i = 0; i < 3; i++)
+        console.log(arr.pop()); // 삭제되는 값을 출력한뒤 삭제 시킨다. 삭제는 뒤에서 부터 앞순서로 진행한다. 1,2,3 이면 3,2,1 순서로 삭제 
+
+        //stack : LIFO(Last In First Out)구조 가장 마지막에 저장한 데이터를 가장 먼저 출력
+        //queue : FIFO( First In First Out) 가장 먼저 입력한 데이터를 가장 먼저 출력 
+        const arr5 = [4, 5, 6,]
+        let result3 = arr5.unshift(1,2,3,) //배열 선두에 요소 추가
+        console.log(result3)
+        console.log(arr5)
+
+        //shift
+        const arr6 = [1, 2];
+        console.log(arr6)
+        let res = arr.shift() // 배열 선두부터 요소 삭제 빈칸에는 undefined 출력
+        console.log(res);
+        console.log(arr6);
+        
+        //concat
+        const arr7 = [1, 2];
+        const arr8 = [3, 4];
+        let result4 = arr7.concat(arr8) //끝 에 두번째 배열을 붙인다. 
+        console.log(result4);  
+        console.log(arr7);  
+        console.log(arr8);  
+        
+        //splice
+        const arr9 = [1, 2, 3, 4];
+        const result5 = arr9.splice(1, 2, 20, 30); //splice ()요소에 첫번째(위치설정) 두번째(개수설정)는 삭제관련요소  3번째부터는 그자리에 삽입요소로 사용 됨 여러개도 가능 함 ㄱㅁㄷㄷㄷㄷㄷㄷㄷ
+        console.log(result5);
+        console.log(arr9)
+
+        //filter 27-66 
+        const arr10 = [1, 2, 3, 1, 2];
+        function removeAll(array, item){ //찾는 요소만 찾아낸다. 
+                return array.filter(v => v !== item);
+        }
+        console.log(removeAll(arr10, 2));
+
+        // 27.8.10 p. 525 join
+        const arr11 = [1, 2, 3, 4];
+        console.log(arr11.join()); //,(콤마) 위치에 대신해서 요소를 넣주는것 
+        console.log(arr11.join(''));
+        console.log(arr11.join(':'));
+
+
+        //27.8.11 reverse p.525
+
+        const arr12 = [1, 2, 3]; // 원본 arr12의 배열을 뒤집어서 321로 나오게 된다.  전체의 순서를 반대로 뒤집는거  단순히 뒤집을 뿐
+        const result6 = arr12.reverse();
+        console.log(arr12);
+        console.log(result6);
+
+        //27.9.1 sort 오름차순 정리
+        const fruits = ['banan', 'orange', 'apple'];
+        fruits.sort(); //알파벳 순서로 정렬 
+        console.log(fruits)
+
+        const points = [ 40, 100, 1, 5, 2, 25, 10];
+        points.sort ((a,b) => b - a);
+        console.log(points);
+
+
+        const todos = [
+            {id: 4, content: 'javascript'},
+            {id: 1, content: 'html'},
+            {id: 2, content: 'css'}
+        ];
+
+        function compare(key){
+            return (a, b) => (a[key] > b[key] ? 1 : (a[key] < b[key] ? - 1 : 0));
+        }
+        todos.sort(compare('id'));
+        console.log(todos);
+
+        //27.9.2 foreach 
+        //27 - 95
+        const number = [1, 2, 3]; //만들어진 배열에 반환된 데이타를 대입한다.
+        const pows = [];
+
+        for (let i = 0; i < number.length; i++){
+            pows.push(number[i] ** 2);
+        }
+        console.log(pows);
+
+        // 27.9.3 map p. 537
+        const numbers = [1, 4, 9]; //데이터의 갯수만큼 배열을 만들어준다
+        const roots = numbers.map(item => Math.sqrt(item));
+        console.log(roots);
+        console.log(numbers);
+
+        //27.9.5 reduce p.542
+
+        const sum = [1, 2, 3, 4]. reduce((accumulator, currentvalue, index, array) => accumulator + currentvalue, 0);
+        console.log(sum);
+
+
+
+
+
+
+
+
+        // const arr_ex = [];
+        // arr_ex.push(1);
+        // arr_ex.push(2);
+        // arr_ex.push(3);
+        // arr_ex.push(4);
+        // arr_ex.push(5);
+        // arr_ex.push(6);
+        // arr_ex.push(7);
+        // console.log(arr_ex);
+
+        // for (let i = 0; i < arr_ex.length; i++) {
+        //     console.log(arr_ex);
+        // }
+
+        // console.log(arr_ex);
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

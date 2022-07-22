@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //변수 --> 어떤 값으 저장 할 수 있는 공간!
+        // var   변수 재선언 가능 변수 재할당 가능 
+        // const 변수 재선언 불가능 변수 재할당 가능
+        // let   변수 재선언 불가능 변수 재할당 불가능
+
+        var num = 10;
+        var num = 30;
+        var num = 40;
+        console.log(num)
+        var num1 = 50;
+        var num2 = 50;
+        var num3 = 50;
+
+        let num5 = 100;// 블록내에서 선언된 경우 함수블록내에서만 사용 가능하다. 함수블록 밖으로 나가면 안됨 기능 안함
+        num5 = 20 //재할당
+        console.log(num5)
+
+        // const
+    // const num7 = 200 //재할당 재선언 불가능 상수로 사용하고 싶을 때 사용
+    //     num7 = 300
+
+//      연산자
+ var num = 10;
+//  num++;
+ num+2;//계산은 되지만 다시 담기지 않아서 아까 시리얼먹는거처럼
+
+ num = num + 2 //재선언 12가됨
+ num += 2; //= num = num + 2
+    var num2 = '14';
+    //비교 연산자 ==은 타입은 비교하지않고 값만 비교한다.
+    console.log(num);
+    console.log(num == num2);    //false 왜? Why 문자열로 대입되었기 때문에 숫자열로 취급되지않으니까
+
+    console.log(num === num2);
+    console.log(num !== num2);
+    console.log(num != num2); // != 참인 값을  부정한다. true 값이 false로 
+    
+    
+
+
+
+
+
+    
+    </script>
+</body>
+</html>

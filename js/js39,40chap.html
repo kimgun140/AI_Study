@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //DOM(Doucument Object Model)
+    
+    //     //ppt 교재
+    //     //html 소스코드는 순서에 따라 진행한다. 이 문제는 이후 jquery를 배우면 해결가능하다. 문서 실행후 스크립드 실행하도록
+    // window.onload = function(){
+    //         // onload는 문서가 다 실행된다음을 이야기하기 떄문에 스크립트의 배치가 문제되지않는다.
+            
+    //     // backeground - color -(하이픈)을 생략하고 Color 대문자로 고쳐서 대입한다. (카멜대입법)
+    // for (let i = 0; i < h1.length; i++){ //여러개의 태그에 적용할때는 여러태그느들은 배열형태로 저장된다.
+    // document.querySelector('h1').style.backgroundColor = 'red';
+    // var h1 = document.querySelector('h1'); // querySelector 하나만 골라서 실행시킨다. 전부다는 selectorAll 이걸로 윗문장 대체가능
+    // document.querySelector('h2').style.color = 'red';
+    // }}       //querySelector 
+        
+        // 원하는 엘리멘트에 접근하기 위해서 사용하는 태그
+        // document.getElementById //아이디 1개만 선택
+        // document.querySelector // 선택자 1개만 선택
+        // document.getElementsByName //(이름) 여러 개 선택 가능
+        // document.getElementsByClassName//클래스 여러개 선택 가능
+        // document.querySelectorAll//선택자 여러개 선택 가능
+        
+        
+        
+        // window.onload = function(){
+        //     //문서 객체를 선택합니다.
+        //     var header = document.getElementById('header')
+            
+        //     //문서 객체를 조작합니다.
+        //     header.style.color = 'orange';
+        //     header.style.background = 'red';
+        //     header.innerHTML = 'From JavaScript';
+        // };
+
+
+
+            //기본예제 10-1
+        // window.onload = function (){
+
+        //     var header = document.querySelector('h1');
+
+
+        //     header.style.color = 'orange';
+        //     header.style.background = 'red';
+        //     headr.innerHTML = 'From Javascript';
+        // }
+    //10-2번 기본예제    
+
+    //     window.onload = function (){
+    //         //문서 객체를 선택합니다.
+    //     var headers = document.querySelectorAll('h1');
+
+    //     for (var i = 0; i < header.length; i++){
+    //         //변수를 선언합니다
+    //         var header = headers[i];
+    //         //문서 객체를 조작합니다.
+    //         header.style.color = 'orange';
+    //         header.style.background = 'red';
+    //         header.innerHTML = 'From Javascript';
+    //     }
+    // }
+
+    //기본예베 10-3 코드 10-9
+        //이벤트를 연결합니다
+        // window.onload = function(){
+        //     var output = '';
+        //     //변수를 선언합니다
+        //     for (var i = 0; i < 10; i++){
+        //         output += '<h1>Header - ' + i + '</h1>';
+        //     }
+        //     document.body.textContent = output;
+        // }
+            
+//기본예제 10-4 스타일 조작(2)
+            // 이벤트를 연결합니다
+            // window.onload = function(){
+            //     //문서객체를 추가합니다
+            //     var output = '';
+            //     for (var i = 0; i < 256; i++){
+            //         output += '<div></div>';
+            //     }
+            //     document.body.innerHTML = output;
+
+            //     //문서객체를 선택합니다.
+            //     var divs = document.querySelectorAll('div');
+            //     for (var i = 0; i < divs.length; i++){
+            //         //변수를 선언합니다.
+            //         var div = divs[i];
+                    
+            //         //스타일을 적용합니다.
+            //         div.style.height = '2px'
+            //         div.style.background = 'rgb(' + i +',' + i +',' + i + ')';
+            //     }
+            // };
+
+// =============================
+
+//기본예제 10-5 문서객체 속성 조작 코드 10 -11
+
+// window.onload = function (){
+//     //변수르 선언합니다.
+//     var image = document.getElementById('image');
+
+//     //속성을 변경합니다.
+//     image.src = "01.19372617.1.jpg";
+//     image.windth = 300;
+//     image.height = 200;
+// }
+//====================================================
+
+//2.body 태그 속성 조작하기 
+//코드 10-12 
+//이벤트를 연결합니다.
+// window.onload = function(){
+//     //속성을 지정합니다.
+//     document.body.setAttribute('data=custom','value');
+
+//     //속성을 추출합니다.
+//     var dataCustom = document.body.getAttribute('data-custom');
+//     alert(dataCustom);
+// };
+//================================================
+//기본예제 10-6 문서 객채를 사용한 시간 표시 
+//코드 10-13
+
+//     //이벤트를 연결합니다.
+//     var resID;
+//         window.onload = function(){
+
+//     var clock = document.getElementById('clock');
+
+//     resID = setInterval(function(){
+//         var now = new Date();
+//         let year = now.getFullYear();
+//         let month = now.getMonth() + 1;
+//         let date = now.getDate();
+//         let hour = now.getHours();
+//         let minute = now.getMinutes();
+//         let second = now.getSeconds();
+//         let result = `${year}년 ${month}월 ${date}일 ${hour}시 ${minute}분 ${second}초`
+//         clock.innerHTML = result;
+//     },1000);
+// };
+
+// function stop(){
+//     clearInterval(resID); //함수 안밖에서 다 사용해야하니까 전역변수로만듬
+// }
+
+//===================================================
+//기본예제  이벤트 연결 코드 10-14
+
+// window.onload = function(){
+//     var button = document.getElementById('button');
+
+//     button.addEventListener('click', function(){
+//         alert('click');
+//     });
+// };
+//     var click_event = () => {
+//         alert('click')
+//     }
+// //addEventListener / removeEvnetListener(추가된 이벤트를 삭제한다.)
+//     button.addEventListener('click', () => {
+//     alert('click')
+//     })
+// =============================================================
+window.onload = function(){
+    var button = document.getElementById('button');
+
+    button.onclick = function(event) {
+        alert("hello")
+        event.preventDefault();
+        // prevnetDefault:이전 이벤트의 기능을 막는 역할 
+        // return false;
+        // 자바스크립트는 even라는 이벤트를 담당하는 객체가 별도의 설정없이 프로그램 내에 저장되어있다.
+    };
+};
+
+
+        //style
+        //1. <style></style>
+        //2. inline
+        //3. ~~.css =><ink ~~>
+    </script>
+</head>
+<body>
+    <!-- 코드 10-10 <h1 >Header</h1>
+    <h1 >Header</h1>
+    <h1 >Header</h1>
+     -->
+    <!-- 기본예제 10-2
+    <h1 id = "header">Header</h1>
+    <h1 id = "header">Header</h1>
+    <h1 id = "header">Header</h1> -->
+ <!--//기본예제 10-5 문서객체 속성 조작 코드 10 -11
+ <img id = 'image'/> -->
+ <!-- ======================================== -->
+    <!-- <h1 id="clock"></h1>
+    <button onClick="stop();">중지 </button> -->
+<!-- ======================================================= -->
+
+<!-- <button onclick="alert('click')">버튼</button> -->
+
+<!-- =================================== -->
+
+<!-- <button id = 'button'>버튼</button> -->
+
+<!-- <b<utton onclick = "buttonclick()">버튼</button> -->
+<a id = "button" href="../HTML5/images/01.19372617.1.jpg">버튼</a>
+
+
+</body>
+</html>

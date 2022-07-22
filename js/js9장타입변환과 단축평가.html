@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+// p.110
+//타입변환 자주 하지는 않아요
+var x =10+ 'mbc';
+//명시적 타입변화
+//숫자를 문자열로 타입 캐스팅한다.
+var str = x.toString();
+console.log(typeof str, str); //sting 10
+
+// x변수의 값이 변경된 것은 아니다.
+console.log(typeof x,x);//number 10
+
+//암묵적 타입 변환(타입 강제 변환)
+//숫자열과 문자열이 만나면 숫자열이 문자열로 변환된다.
+
+// p.111=
+console.log(`1 + 1 = ${1 + 1}` );
+// 위와같은 ``(백틱 안에오는)${1 + 1}(표현식이라고 한다.)
+// ${}=>는 표현식이라고 한다.
+//symbol() 심벌타입의 표현식
+console.log({name: 'lee', age: 30} + '')
+
+console.log(1 -'1')
+console.log(1-'1')/9-7
+
+//p.114)
+// console.log(i==it)
+
+// var a = 'AAA';
+// var val = 10 ;
+// var tostring = val + '';
+// var tostring = val + '';
+// console(typeof a)
+// console(typeof b)
+// console(typeof c)
+// console(typeof d)
+
+// var a = '10'
+// var b = boolean(a);
+// var b = boolean(100);
+// console.log(typeof a);
+// console.log(typeof b, b);
+// console.log(typeof c, c);
+
+//p.118 단축평가 
+// 많이 쓰는 내용은 아님
+
+console.log('cat'||'dog') // ||논리연산자 or 둘중 하나만 진실로 평가 되어도 진실을 반환한다.
+console.log('false'||'dog')// && 논리연산자 and 첫번째 조건식이 거짓일 때 두번째 조건식은 평가를 하지않고 거짓이라고 판별함
+console.log('cat'||'false')//나머지는 시간 날 때 읽어보세요  ㅇㅋ? ㅇㅋ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

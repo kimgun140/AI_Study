@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jstest</title>
+    
+    
+    <!-- <script src="test.js"></script> -->
+
+    <!-- <script>
+        console.log(score);
+
+        var score
+    </script> -->
+
+</head>
+<body>
+    <!-- <script>
+        var num = 2;
+        var kind;
+
+//if문 if문의 범위는 중괄호가 없으면 전부 하나의 문장으로 판단한다.
+        if (num > 0) {
+            kind = '양수'; //양수를 구별할 수 없다.
+        } else {
+            kind = '음수'; //0은 음수가 아니다.
+        }       
+        // console.log(kind);
+        // alert(kind);
+        // document.write(kind);
+        document.write('<table border="1"><tr><td>');
+        document.write(kind);
+        document.write('</td></tr></table>');
+// html소스에 활용하기 console.log()쓰는 이유는 자바스크립트 내에서 확인하기 위해서이지 실제 사용례가 아니다. -->
+    <!-- </script> -->
+
+    <script>
+        //var hakbun = prompt('학번을 입력 하세요!!', '학번') //파라미터 (parametor)
+                                                            //실매개변수 or 실인수 :함수를  호출할때 사용하는 파라메터 '인수'라고도 함
+                                                            //형식매개변수 or 가인수 : 함수를 정의(선언)할대 사용하는 매개변수
+                                                            //prompt 함수는 보통 2가지 파라메터가 사용가능함
+        //alert(hakbun)
+
+//         //성적표만들기
+//         var hakbun = prompt("학번을 입력 하세요!!" );
+        
+//         var name = prompt("이름을 입력 하세요!!" );
+        
+//         var kor = parseInt(prompt("국어점수를 입력 하세요!!" ));
+        
+//         var eng = parseInt(prompt("영어점수를 입력 하세요!!" ));
+        
+//         var math = parseInt(prompt("수학점수를 입력 하세요!!" ));
+
+//         var tot = kor + eng +math
+
+//         var avg = tot / 3
+
+//         var grade ;
+//          switch (parseInt(avg / 10)){
+            
+//             case 10 :
+//             case 9: grade = '수' ;
+//             break;
+//             case 8 : grade = '우';
+//             break;
+//             case 7 : grade = '미';
+//             break;
+//             case 6 : grade = '양';
+//             break;
+            
+//             default : grade = '가';
+//         }
+
+//         // if (avg >= 90)
+//         //  grade = "수";
+//         // else if (avg >= 80)
+//         //     grade = "우";
+//         // else if (avg >= 70)
+//         //     grade = "우";
+//         // else if (avg >= 60)
+//         //     grade = "우";
+//         // else 
+//         //     grade = "가";
+
+
+
+// document.write("<table border='1'>");
+// document.write("<tr>");
+// document.write("<td>학번</td>");
+// document.write("<td>이름</td>");
+// document.write("<td>국어</td>");
+// document.write("<td>영어</td>");
+// document.write("<td>수학</td>");
+// document.write("<td>총점</td>");
+// document.write("<td>평균</td>");
+// document.write("<td>등급</td>");
+// document.write("</tr>");
+// document.write("<tr>");
+// document.write(`<td>${hakbun}</td>`);
+// document.write(`<td>${name}</td>`);
+// document.write(`<td>${kor}</td>`);
+// document.write(`<td>${eng}</td>`);
+// document.write(`<td>${math}</td>`);
+// document.write(`<td>${tot}</td>`);
+// document.write(`<td>${avg}</td>`);
+// document.write(`<td>${grade}</td>`);
+
+// document.write("</tr>")
+
+
+
+// document.write("</table>")
+        //alert(kor + eng + math);
+        
+        // paraseFloat():수치문자열을 실형으로 변환
+        // paraseInt():
+        //var kor = parseInt(prompt("국어점수를"))
+
+        //if문의 안에 다른 if문이 올 수 있다. if문은 가장 기본적인 함수문이다. 
+var num = 10;
+var kind;
+
+if (num % 2 ==0){
+    console.log("짝수");
+    if(num % 4 == 0)
+        console.log("4의 배수");
+    else
+        console.log("4의 배수가 아니다");
+    } else {
+    console.log("홀수");
+        if (num % 3 == 0)
+            console.log("3의 배수");
+        else
+        console.log("3의 배수가 아니다");
+        }
+console.log("끝");
+
+// p.97 switch문 break 스위치문에서 사용한다 예제 8-8,8-9 !중요한 점 스위치문 안에 다른 스위치문이 올 수 있다.! ㅇㅋ? ㅇㅋ
+
+
+//반목문의 필요조건
+//1.초기식
+//2.조건식
+//3.반복처리할 내용
+//4.증감식
+// for 문 실행과정 js에서 함수의 진행은 모두 이와 같이 진행된다.
+// for(1.초기식;2.조건식;4.증감식){
+//  3.반복처리할 내용
+//}
+// 실행 순서 1->  2-> 3 ->4 2-> 3 ->4 반복 조건식이 참일 경우에만 반복 실행된다. 거짓일 경우 함수를 빠져나옴
+
+// for (var i = 0; i < 2; i++) {
+//     console.log(i);
+// }
+
+// var hap = 0;
+
+// for (var i = 1; i <= 10; i++){
+//     hap += i; //hap = hap + i;
+// }
+// console.log(hap);
+//홀수짝수합구하기
+// var odd = 0;
+// var even = 0;
+// for (var i =1; 1 <= 10; i++){
+//     if (i % 2 == 0){
+//         even + 1;
+//     }else{
+//         odd += i
+//     }
+    
+ 
+// }
+// console.log(odd);
+// console.log(even);
+
+
+// 조건식이 비어있으면 무조건 참으로 간주한다. 무한루프에 빠져버림 ㄷㄷ
+
+// 369게임 만들기
+// var count = 0;
+// for (var i = 1; i < 3; i++) {
+//     for (var j = 1; j < 4; j++) {
+//         console.log("i=", i, "j=", j, " count=", ++count)
+//     }
+// }
+// for (var i =1; i <= 30; i++) {
+//     if ( i % 3 == 0 ){
+//         document.write("&nbsp;")
+//         document.write("짝");
+//     }else{
+//         document.write("&nbsp;")
+//         document.write(i)
+//     }
+// }
+//임의의 두 숫자를 입력 받아 작은 수에서 큰 수 사이의 구구단을 만들어라
+
+
+// //문제에 대한 순서를 설계해라 구구단 테이블 
+// document.write('<table boder="1">');
+// var num1 = parseInt(prompt("첫번째 숫자를 입력하세요"))
+// var num2 = parseInt(prompt("두번째 숫자를 입력하세요"))
+// var min_num, max_num;
+
+// if (num1 > num2){
+//     min_num = num2;
+//     max_num = num1;
+// }else {
+//     min_num = num1;
+//     max_num = num2;
+// }
+// alert(min_num);
+// alert(max_num);
+
+
+//  document.write('<table border="1">')
+//  document.write('<tr>')
+//  for( i = min_num; i <= max_num; i++ ){
+//     document.write(`<th>${i} 단</th>`);
+//     // document.write('<td>')
+//     //     i + "단"
+//     // document.write('</td>')
+//  }   
+//  document.write('</tr>')
+//  for (var j=1; j<=9; j++){
+
+//     for (var i=min_num; i<=max_num; i++){
+//         document.write("<td>" + i +"*" + j + "=" + (i*j) + "</td>");
+//     }
+//     document.write("</tr>");
+//  }
+// document.write("</table>");
+
+//while(조건식){
+//    반복처리할 내용;
+//}
+
+
+// for 함수
+var hap = 0
+
+for (var i = 0; i <=10; i++){
+    hap += i;
+}
+console.log(hap);
+
+
+// while 함수 
+var hap = 0;
+var i = 1; //초기식
+
+while(i<=10){//조건식
+    hap +=i;//반복처리할 내용
+    i++;//증감식
+}
+console.log(hap);
+
+
+
+
+
+
+
+//같은결과를 다른 함수를 
+    
+var k = 0;
+for (var i=1; i<3; i++){
+    for (var j=0; j<4; j++){
+        console.log("i=", i, "j=", j,"k",++k )
+    }
+}
+
+var k = 0;
+var i = 1; //초기식
+while(i<3){ //조건식
+    var j = 1;//반복처리(초기식)
+    while (j<4){ //반복처리(1)
+        console.log("i", i, "j=","k",++k);
+        j++; //증감식
+    }
+    i++;
+}
+    
+//7월 1일 
+
+var count = 0;
+
+//무한루프
+while (true) { 
+    console.log(count);
+    count++
+    //count가 3이면 코드 블록을 탈출한다.
+    if (count === 3) break;
+}
+    
+    while (count == 0){
+        console.log(count);
+        count++;
+    }
+    
+    var count = 0
+//count 가 3보다 작을 때까지 코드 블록을 계속 반복한다. 
+    // do{
+    //     console.log(count);
+    //     count++;
+    // }
+    // while(count < 3);
+    // break는 아예 함수를 빠져 나가는거고 continue는 어떤 행위를 하다가 continue를만나면 해야할 
+    //명령문을 실행하지 않고 그 다음 명령문을 실행하는 명령문 입니다.(1번을 건너 뛰고 2번을 수행한다는 의미)
+    outer : for (var i = 0; i < 3; i++){
+        for(var j = 0; j < 3; j++){
+            if(j  === 1)
+            //  break 
+            continue;
+            console.log(`inner [${1}, ${j}`);
+            
+            
+        }
+    }
+    console.log('Done!')
+    
+
+    outer : for (var i = 0; i < 3; i++){
+        for(var j = 0; j < 3; j++){
+            if(i + j  === 3)
+             break outer;
+            
+            console.log(`inner [${1}, ${j}]`);
+            
+            
+        }
+    }
+    console.log('Done!')
+    
+    //break outer만나면 반복문의 시작점으로 이동시켜준다. 시작 함수 시작점으로 나온다 그리고 다시 수행 
+    outer :
+    for (var i = 0; i < 3; i++){
+        for(var j = 0; j < 3; j++){
+            if(j  === 1)
+             break outer
+            // continue outer;
+            console.log(`inner [${1}, ${j}]`);
+            
+            
+        }
+    }
+    console.log('Done!')
+
+
+//소수 구하기
+// 
+// var count = 0
+// var num1 = parseInt(prompt("첫번째 숫자"))
+// var num2 = parseInt(prompt("첫번째 숫자"))
+// for (var i = min_num; i <= max_num; i ++){
+//     for(var j = 2; j < i; j++){
+//         if (i % j == 0){
+//             break;
+//         }
+        
+//     }
+//     i (i == j) 
+//     {
+//         count++;
+//             console.log(i);
+    
+//     }
+
+// }
+
+// console.log("총소수의 갯수 = ",count);
+
+count = 0
+ 
+var num1 = parseInt(prompt("첫번째 숫자"))
+var num2 = parseInt(prompt("두번째 숫자"))//초기식
+
+// if(num1 > num2){
+//     min_num = num2;
+//     max_num = num1;
+// }
+// else {
+//     min_num = num1;
+//     max_num = num2;
+// }
+
+
+
+// var i = min_num;
+// while(i <= max_num); //조건식
+// {
+//     var j = 2;    //반복내용
+//     while(j < i) //반복내용
+//     {            //반복내용   
+//         if (i % j ==0 ){//반복내용
+//             //반복내용
+//             break;
+             
+//         }j++
+//     }if (i == j){
+//         console.log(i);
+//         count++;
+//     }; i++
+    
+// }
+// console.log("총소수의 개수 =" , count)
+
+
+
+
+//초기식;
+//do {
+    // 반복처리할 내용;
+// 증감식; 
+//}while(조건식);
+
+var i = min_num; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+       
+
+
+</body>
+</html>

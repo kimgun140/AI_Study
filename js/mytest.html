@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습장쓰</title>
+</head>
+<body>
+    <script>
+
+function input_number(){
+    var num1, num2; //지역변수 함수 안에 설정한 변수는 지역변수  사용가능한 범위는 해당 함수의 안에서만 사용 가능 ,지역함수는 함수 실행이 완료되면 없어짐
+    num1 = parseInt(prompt("첫번째 숫자 입력")); //함수로 만들기
+    num2 = parseInt(prompt("두번째 숫자 입력"));
+    return {num_1:num1, num_2:num2} //객체 반환(return)시키기
+}
+function number_compare(num1, num2){ 
+    var min, max;
+    if (num1 < num2)  //
+{
+	min = num1;
+	max = num2;
+}
+else
+{
+	min = num2;
+	max = num1;
+}
+ return {min_num:min, max_num:max}
+}
+///////////////////////////함수호출////////////////////////////그림을 그려보아요
+
+function guguans_proc(min,max){
+
+}
+
+function gugudan()
+
+{var num1, num2, min, max, i, j;
+
+var num = input_number();
+
+num1 = num.num_1; //함수 num안에서 정의된 객체 num_1의 값을 함수 input_number의 num1에 대입한다.
+num2 = num.num_2; //
+
+number_compare(num1, num2);
+
+var min_max = number_compare(num1, num2); // 바로위에서 반환된 num1, num2가 number_compare에 대입되어서  지역변수min_max의 객체 min_num을 min에 대입한다.
+min = min_max.min_num;
+max = min_max.max_num;
+
+guguans_proc(min,max);{
+    var i, j; //지역변수//형식매개병수
+    document.write("<table border='1' align='center'>"); //함수로 만들기
+    document.write("<tr align='center'>");
+for (i=min; i<=max; i++)
+{
+	document.write("<th>" + i + "단" + "</th>");
+}
+document.write("</tr>");
+
+for (j=1; j<=9; j++)
+{
+	document.write("<tr align='center'>");
+	for (i=min; i<=max; i++)
+	{
+		document.write("<td>" + i + "*" + j + "=" + (i*j) + "</td>");	
+	}
+	document.write("</tr>")	;
+}
+	
+document.write("</table>");
+}                     
+}
+
+gugudan();
+
+    </script>
+</body>
+</html>

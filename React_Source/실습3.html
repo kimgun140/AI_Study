@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+        
+    
+       
+        
+    .li_inline li a{text-decoration: none;}
+    a:hover:not(.active){background-color: blue;}
+
+    .li_inline{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;}
+
+    li {
+        float: left;
+        width: 150px;
+        list-style: none;      
+      }
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        background-color: #1E90ff; 
+        
+    }
+    .active{
+        background-color: #4CAF50;
+    }
+    .li_inline ul{display: none;}
+    .li_inline:hover .dropdown1{display: block;}
+    .li_inline:hover .dropdown2{display: block;}
+    .li_inline:hover .dropdown3{display: block;}
+    .li_inline:hover .dropdown4{display: block;}
+    
+    
+</style>
+</head>
+<body>
+  <nav class="navbr">
+    <ul class="li_inline">
+    <li><a class="active" href="#">Home</a></li>
+      <ul class="dropdown1"> 
+        <li><a href="#">Home1</a></li>  
+        <li><a href="#">Home2</a></li>  
+        <li><a href="#">Home3</a></li>  
+      
+    </ul>
+    <li><a href="#">News</a></li>
+      <ul class="dropdown2">
+        <li><a href="#">News1</a></li>  
+        <li><a href="#">News2</a></li>  
+        <li><a href="#">News3</a></li>  
+
+      </ul>
+    <li><a href="#">dropdown</a></li>
+     <ul class="dropdown3">
+        <li><a href="#">Dropdown1</a></li>
+        <li><a href="#">Dropdown2</a></li>
+        <li><a href="#">Dropdown3</a></li>
+      </ul>
+    <li><a href="#">About</a></li>
+      <ul class="dropdown4">
+        <li><a href="#">About1</a></li>
+        <li><a href="#">About2</a></li>
+        <li><a href="#">About3</a></li>
+
+      </ul>
+    </ul>
+</nav>
+    
+</body>
+</html>

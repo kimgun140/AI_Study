@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "../jquery-3.6.0.js"> </script>
+
+    <script>
+
+  $(document).ready(function(){
+    $("#btnAdd").click(function(){
+        var row = '<tr><td><input type="text" name="id" size="10"></td>';
+            row +='<td><input type="text" name="irum" size="10"></td> '
+            row +='<td><input type="button" class="btnDel" value="Del">'
+            row +='</td></tr>';
+
+                $("#list").append(row);
+    })
+    $("#list").on("click", ".btnDel", function(){
+        $(this).parent().parent().remove();
+    });
+  });
+
+    </script>
+</head>
+<body>
+    <input type="button" id="btnAdd" value="추가"><br><br>
+    <table id="list" border="1"></table>
+</body>
+</html>

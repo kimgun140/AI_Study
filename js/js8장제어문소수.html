@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+   //초기식;
+//do {
+    // 반복처리할 내용;
+// 증감식; 
+//}while(조건식);
+
+// var count = 0
+// var num1 = parseInt(prompt("첫번째 숫자"))
+// var num2 = parseInt(prompt("첫번째 숫자"))
+
+// if(num1 > num2){
+//     min_num = num2;
+//     max_num = num1;
+// }
+// else {
+//     min_num = num1;
+//     max_num = num2;
+// }
+
+// var i = min_num;
+// do{
+
+// var j = 2;
+//     do{
+//         if (i % j == 0){
+//         break;
+//     };
+//      j++
+// } while( j<i);
+//  if ( i == j){
+//     console.log(i);
+//     count++;
+// }
+// i++ }
+// while( i <= max_num);
+
+// console.log("총소수의 개수 =",count)
+
+
+var min_num, max_num, count = 0
+var num1 = parseInt(prompt("첫번째 숫자"))
+var num2 = parseInt(prompt("두번째 숫자"))
+
+
+if(num1 > num2){
+    min_num = num2;
+    max_num = num1;
+}
+else {
+    min_num = num2;
+    max_num = num1;
+}
+var i = min_num;
+do {
+    var j = 2;
+    do{
+        if (i % j ==0){
+            break;
+        }
+        j++;
+    } while(j < i);
+    if (i == j) {
+        count++;
+        console.log(i);
+    }
+    i++
+}while(i <= max_num);
+console.log("소수값 =",count)
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

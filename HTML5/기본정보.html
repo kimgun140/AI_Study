@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- <style> 
+
+        form{border-radius: 3;}
+    
+
+        fieldset {
+            background-color: palevioletred;
+            border-style: none;
+            border-radius: 5px;
+            width: 500px;
+            margin: 0px;
+        }
+        
+        div {
+            background-color: pink;        
+            padding:10px 40px 0 0;
+            margin: 10px 30px 0 0;
+            border-radius: 5px;
+            
+            
+        }
+
+        legend {
+            padding: 50px 0 0 50px;
+            margin: 0px 0 0 0;
+            
+        }
+
+        h3{margin: 0;}
+    </style>
+ -->
+
+<style>
+html, body, form, fieldset, legend, ul, div{
+    margin: 0;
+    padding: 0;
+}
+    form {width: 480px;
+        border-radius: 5px;
+        background-color: rgb(255, 255, 255);
+    }
+
+   form fieldset {
+        background-color: rgb(220, 33, 185);
+        border: none;
+        margin-bottom: 10px;
+    }
+
+
+    
+     form > fieldset > ul > div {
+        background-color: rgb(236, 151, 226);
+    }
+    form ul div {
+	background: #aaaaaa;
+	background: rgba(255,255,255,.3);
+	border-color: #e3ebc3;
+	border-color: rgba(255,255,255,.6);
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 5px;
+	line-height: 30px;
+	list-style: none;
+	padding: 5px 10px;
+	margin-bottom: 2px; 
+    }
+    form label {
+	float: left;
+	font-size: 13px;
+	width: 110px;
+}form input:not([type=radio]) {
+	background: #ffffff;
+	border: none;
+	border-radius: 3px;
+	font: italic 13px 맑은고딕,굴림,돋움;
+	outline: none;/* red 5px solid */
+	padding: 5px;
+	width: 200px;
+}
+form input:not([type=radio]) {
+	background: #ffffff;
+	border: none;
+	border-radius: 3px;
+	font: italic 13px 맑은고딕,굴림,돋움;
+	outline: none;/* red 5px solid */
+	padding: 5px;
+	width: 200px;
+}
+
+form button {
+	background: #E208C9;
+	border: none;
+	border-radius: 20px;
+	color: #ffffff;
+	display: block;
+	font: 16px 맑은고딕,굴림,돋움;
+	letter-spacing: 1px;
+	margin: auto;
+	padding: 7px 25px;
+
+}
+form button:hover {
+	background: #C402AD;
+	cursor: pointer;
+}
+
+form legend {
+	color: #0B0B0B;
+	font-size: 16px;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+form fieldset:last-of-type {
+	margin-bottom: 0;
+}
+
+
+			
+</style>
+
+
+</head>
+
+<body>
+<!-- 굳모닝 현재 시각 금요일 오전 10:30 1시간 반 동안 겨우 양식만 만들었다. 이제 스타일 시작하는데 답답쓰다. -->
+   <form>
+    <fieldset> <!---->
+        <legend>
+           
+               1. 회원 기본 정보
+           
+        </legend>
+        <ul>
+        <div>
+            <label for="id">아이디</label> 
+            <input type="text" id="id" name="id"  size="30" maxlength="10"  style="ime-mode:inactive" placeholder="(최대10,숫자와알파벳만 사용)">
+        
+        </div>
+
+        <div>
+
+            <label for="pw1">비밀번호</label><input type="password" id="pw1" name="pw1"  size="20" minlength="6" maxlength="10"  style="ime-mode:inactive" placeholder="(최소6~최대10,숫자와알파벳만 사용)">
+       
+        </div>
+        
+        <div>
+            <label for="pw2">비밀번호확인</label>
+            <input type="password" id="pw2" name="pw2"  size="20" minlength="6" maxlength="10"  style="ime-mode:inactive">
+        
+        </div>
+
+        <div>
+
+          <label for="name">이름</label> <input type="text" id="name" name="name" size="20" style="ime-mode:inactive">
+
+        </div>
+
+        <div>
+
+            <label for="age">나이</label>
+            <input type="number" id="age" name="name" size="20" style="ime-mode:inactive">
+
+        </div>
+
+        <div>
+            <label for="birth">생일</label>
+            <input type="date" id="birth" name="birth" size="20" style="ime-mode:inactive">
+
+        </div>
+
+        <div>
+            <label for="email">이메일주소</label>
+            <input type="email" id="email" name="email" size="20" style="ime-mode:inactive" placeholder="asdfasdf@gmail.com">
+
+        </div>
+
+        <div>
+            <label for="tel">전화번호</label>
+            <input type="tel" id="tel" name="tel" size="20" style="ime-mode:inactive">
+
+        </div>
+
+    </ul>
+    
+    
+    </fieldset>
+
+    
+    <fieldset>
+        <legend>
+            <h3>2.회원 추가 정보
+                
+            </h3>
+        </legend>
+    <ul>
+        <div>
+
+            1.직업<input type="text" id="job" name="job" size="20" style="ime-mode:inactive">
+
+        </div>
+
+        <div id="input">
+
+            2.오피스활용<input type="range" id="office" name="office" style="ime-mode:inactive"> 
+
+        </div>
+    </ul>
+
+    </fieldset>
+    
+
+
+    <fieldset>
+
+    <button type="submit" >입력</button>
+    
+    </fieldset>
+
+    
+
+   </form>
+
+
+</body>
+
+</html>

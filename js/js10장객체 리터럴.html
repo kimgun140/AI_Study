@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    // p.124
+//객체를 이용해서 프로그래밍 하는것이 객체지향 프로그래밍
+//객체를 구성하는 행위(기능), 특성 2가지로 구분한다.?
+// 클래스(class): 객체들이 가지고 있는 공통된 특성과 기능(행위)를 정의 한것
+// class = 특성(데이터) + 메서드(함수, 데이터를 다루기 위한 기능)
+// class = 붕어빵 틀, 설계도면
+//객체(object): 클래스를 이용해 만들어진 실체특성(데이터) + 메서드(함수, 데이터를 다루기 위한 기능)
+//객체 = 붕어빵, 빌딩
+//객체 =>{irum;'이기자', age : 27}
+// 원시타입: 10,100,'이기자' (정수형,정수형,문자형,true,false) 등등 값 그자체를 나타내고 변경이 불가능함
+//ES: ECMAScript
+// ES5:2009년도
+// ES6:2015년도
+
+
+// p. 124, 125
+// var person = {
+//     name: 'lee' //프로퍼티
+//     age: 20 //프로퍼티
+// } 프로퍼티 키  프로퍼티값 
+
+// 10.2
+//객체 리터럴
+// var person = {
+//     name: 'lee',
+//     sayHello: function(){
+//         console.log(`Hello! my name is ${this.name}.`)
+//     }
+
+// var person = {
+//     name: 'aaaa',
+//     sayHello: function(){
+//         console.log(`Hello! my name is ${this.name}.`)
+//         console.log(`Hello! my name is ${this. age}.`)
+//         console.log(`Hello! my name is ${name}.`)
+        // str = `<table border=1 align="center">`;
+        // str += `<tr><th>name</th><th>age</th></tr>';
+        // str += `<tr><td>${this.name}</td><td>${this.age</td><td>${this.tel}</td></tr>'        
+        // str += `</table>`;     이거뭐임 왜안되는거야 
+    //     return document.write(str);
+    // }
+// };
+
+//객체 리터럴 성적표만들기 학번 이름 성적이 특성(data)이다. 
+var person = {
+    hakbun: '',
+    irum: '',
+    kor: 0,
+    eng: 0,
+    mat: 0,
+    tot: 0,
+    avg: 0.0,
+    grade: '',
+    getTotal: function(){ // 메서드가 어떤 속성(property)을 가지고 어떻게 기능하는지 정의 하는 과정
+        this.tot = this.kor +this.eng + this.math;
+       },
+       getAvg: function(){
+        this.avg = this.tot /3;
+       },
+       getGrade: function(){
+        switch (parseInt(this.avg / 10)){
+            case 10:
+            case 9:
+                this.grade = "수";
+                break;
+            case 8:
+                this.grade = "우";
+                break;
+            case 7:
+                this.grade = "미";
+                break;
+            case 6: 
+                this.grade = "양";
+                break;
+            default:
+                this.grade = "가";
+                break;
+        };
+       },// return값 이용해서 다시 표만들어보기 document.write쓰지않고
+    printData: function(){
+        str =`<table border = 1 align = "center">`;
+            str = 1<tr
+    }
+    };
+    //빈 문자열상태인 속성(property)에 입력받은 값을 대입해주는 과정
+person.hakbun = prompt("학번 입력"); 
+person.irum = prompt("이름 입력");
+person.kor = parseInt(prompt("국어점수 입력"));
+person.eng = parseInt(prompt("영어점수 입력"));
+person.math = parseInt(prompt("수학점수 입력"));
+person.getTotal();
+person.getAvg();
+person.getGrade();
+
+str = `<table border=1 align="center">`;
+        str = `<table border=1 align="center">`;
+        str += `<table border=1 align="center">`;
+
+        // document.write("<table border='1'>");
+// document.write("<tr>");
+// document.write("<td>학번</td>");
+// document.write("<td>이름</td>");
+// document.write("<td>국어</td>");
+// document.write("<td>영어</td>");
+// document.write("<td>수학</td>");
+// document.write("<td>총점</td>");
+// document.write("<td>평균</td>");
+// document.write("<td>등급</td>");
+// document.write("</tr>");
+// document.write("<tr>");
+// document.write(`<td>${this.hakbun}</td>`);
+// document.write(`<td>${this.irum}</td>`);
+// document.write(`<td>${this.kor}</td>`);
+// document.write(`<td>${this.eng}</td>`);
+// document.write(`<td>${this.math}</td>`);
+// document.write(`<td>${this.tot}</td>`);
+// document.write(`<td>${this.avg}</td>`);
+// document.write(`<td>${this.grade}</td>`);
+
+// document.write("</tr>")
+// document.write("</table>")
+
+
+
+
+person.printData();
+//프로퍼티 축약 표현 
+// person.tel = "020-2222=2222"
+// console.log(typeof person);
+// console.log(person);
+// console.log(person.name);
+// console.log(person['name'])
+// console.log(person["name"])
+// console.log(person[`name`])
+// console.log(person.sayHello())
+
+// person.tel = "0101-1111-1111";
+// console.log(person.tel);
+// console.log(person);
+// console.log(person.sayHello())
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

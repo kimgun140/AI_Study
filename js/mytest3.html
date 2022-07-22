@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+function input_data(){
+    
+    var num1 = parseInt(prompt("첫번째 숫자 입력!!"));
+    var num2 = parseInt(prompt("두번째 숫자 입력!!"));
+    return {num_1:num1, num_2:num2}; //리턴문은 한번에 하나의 값만 반환할 수 있으니까 객체로 만들어서 2개의 값을 보낸다.
+}
+
+function minmax_proc(num_1, num_2){
+    if (num_1 > num_2) {
+        min_num = num_2;
+        max_num = num_1;
+    }
+    else{
+        min_num = num_1;
+        max_num = num_2;
+    } 
+    return{min:min_num, max:max_num};
+}
+
+function prime_number(min, max){
+    var count =0;
+    for (var i = min; i <= max; i++) {
+        for (var j = 2; j < i; j++)
+        {
+            if (i % j == 0) {
+                break;
+            }
+            
+        }
+        
+        if (i == j) {
+            count++;
+            console.log(i);
+            
+        }
+    } 
+    return count;
+}
+
+var num = input_data();
+var minmax = minmax_proc(num.num_1, num.num_2);
+var cnt = prime_number(minmax.min, minmax.max);
+total_count(cnt)
+function total_count(cnt){
+console.log("총소수의 갯수 = ", cnt);
+}
+
+//리턴 값이 있을 때 var minmax = minmax_proc(num.num_1, num.num_2);
+//                     변수명     리턴      호출 
+    </script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="../jquery-3.6.0.js"></script>
+    <script>
+// $(document).ready(function()
+// {
+//     var output = '';
+//     for (var i = 0; i < 256; i++){
+//         output += '<div></div>';
+
+//     }
+//     document.body.innerHTML = output;
+//     //스타일을 적용합니다.
+//     $('div').css({
+//         height: function (a){//div갯수만큼 반복 호출됨
+//             return a;
+//         },
+//         backgroundColor: function(a, ){ //div갯수만큼 반복 호출됨
+//             return 'rgb(' + a + ',' + a + ',' + a + ')';
+//         }
+//     });
+// });
+ 
+
+// //03 문서 객체 조작 
+// //글자조작 메서드
+// //문서 객체 내부 글자 조작 메서드
+// $(document).ready(function(){
+// $('h1:nth-child(1)').text('<a href="#"">text()</a>')
+// $('h1:nth-child(2)').html('<a href="#"">html()</a>')
+// })
+
+
+// $(document).ready(function(){ // /* */ 태그주석
+// //변수를 선언합니다. //파라매터가 있으면 있는 값을 위치에 넣어주는거 파라매터가 없으면 값을 받아와서 하는거/?? 
+//     var text = $('h1').text();//자식태그들 중에 html태그는 모두제외함 //모든text요스를 반환하는데 사용
+//     var html = $('h1').html();//자식태그들을 html형식으로 읽어올대 사용
+//     // 출력합니다.
+
+//     alert("text;" + text);
+//     alert("html;" + html);//한번에 h1태그 내용 하나씩 출력
+    
+    
+// })
+
+//클래스 조작 
+//띄어쓰기로 구분해 무석 객체의 class 속성 값을 여러 개 입력가능 
+// 
+
+// $(document).ready(function(){
+// //스타일 변경및 이벤트 연결 // 동적인 요소가 아니기 때문에 이벤트 등록이 자유롭다.// 요소가 등록되어있지 않으면(동적인 요소, 정적인 요소> 이게뭐임?) on을 사용해야만 이벤트 등록 가능하다.  
+// //동적인 요소 body에 요소가 있으면 정적인 요소(소스보기에서 보이는 요소는 정적인요소) (element에서만 보이면 동적인요소, 동적인요소는 on을 통해서만 이벤트 등록이 가능하다.)
+// $('#box').css({
+//         width: 100,
+//         height: 100,
+//         background: 'orange'
+// })
+// .on('click', function(){
+//     $(this).css('background', 'red');
+//     // alert(event.type + "," + event.currentTarget);
+// })
+// .on('mouseover', function(){
+//     $(this).css('background', 'blue');
+//     // alert(event.type + "," + event.currentTarget);
+//     })
+// .on('mouseout', function(){
+//     $(this).css('background', 'orange')
+//     // alert(event.type + ' ,' + event.currentTarget);
+// });
+// });
+// 마우스 오버, 아웃는 바깥쪽 안쪽에 영ㅇ향을 다 미친다.
+// 마우스 엔터, 리브는 안쪽 바깥쪽 영향이 따로 ?
+
+//이벤트 /이벤트 연결
+
+
+    // $(document).ready(function () { 
+    //     //이벤트를 연결합니다.
+    //     $('body').html('<h1>click</h1>');
+    //     $('h1').click(function(){ //정적인 요소 방법
+    //         //이벤트를 연결합니다.
+    //         alert('클릭!');
+    //         $('h1').on('click', function(){
+    //             alert ('클릭'); //동적인요소방법
+    //         })
+    //     });
+    // });
+
+    // $(document).ready(function(){
+    //     $('h1').hover(function(){
+    //         $(this).css({
+    //             background: 'red',
+    //             color: 'white'
+    //         });
+    //     }, function(){
+    //         $(this).css({
+    //             background: '',
+    //             color: ''
+    //         })
+    //     })
+    // })
+
+        // $(document).ready(function(){
+        //     $('body').on("click", "#outer", function(){alert('outer');});
+        // //     $('body').html('<div id = "outer"></div>')
+        //     // $("#outer").on("click", function(){alert('outer');});
+        // //     const outer =documnet.querySelector('#outer');
+        // //     outer.addEventlistener('click',function(){
+        // //         alert('outer');
+        // //     },true);
+        // // });
+        // })
+        // function tag_insert(){
+        //     // $('body').html('<div id = "outer"></div>');
+        //     $('body').append('<div id = "outer"></div>');
+        // }  
+
+//기본예제 11-10 기본이벤트 제거
+// $(document).ready(function(){
+//     //이벤트를 연결합니다
+//     $('a').click(function(){
+//         //출력합니다
+//         alert('click');
+//         alert(evnet.type + "," + event.currentTarget);
+//         //기본이벤트를 제거합니다
+//         event.preventDefault // = return false 를주면 기본이벤트제거각 가능하다.
+//     });
+// });
+
+//시각효과 메서드 
+// funny thing
+
+//이벤트를 연결합니다.
+    // $(document).ready(function () {
+    //     $('button').click(function(){
+    //         //간단한 효ㅕ과를 적용합니다.
+    //         $('page').fadeToggle('slow');
+    //     });
+    // });
+
+
+    // $(document).ready(function ()
+    // {
+    //     $('#box').css({
+    //         width: 100,
+    //         height: 100,
+    //         background: 'red'
+    //     }).animate({
+    //         width: 100,
+    //         background: 'blue',
+    //         opacity: 0.5
+    //     }, 2000)
+    // })
+
+//애니메이션 정지
+        //이벤트를연결한다  
+        // window.onload =function(){
+        //     var input_1 = document.querySelectorAll('input')[0];
+        //     var input_2 = document.querySelectorAll('input')[1];
+            
+        //     //input_1
+        //     input_1.onkeydown = function(){
+        //         //글자 개수가 여섯개 이상일 경우
+        //         if(6 <= input_1.value.length){
+        //             //input_2 문서 객체로 초점을 이동합니다.
+        //             input_2.focus();
+        //         }
+
+        //     };
+
+        //     //input_2
+        //     input_2.onkeydown = function(event){
+        //         //이벤트 객체를 추출합니다.
+        //         var event = event || window.event;
+        //         //사용자의 입력이 '백 스페이스'이고 입력된 글자가 없는 경우
+        //         if (event.keyCode == 8 && input_2.value.length == 0){
+        //             input_1.focus();
+        //         }
+        //         }
+        //     }
+
+        // 사진으로 동영상 효과주기
+            // var res, count, image, frames
+            // window.onload = function()
+            // {   //변수를 선언합니다.
+            //      count = 0;
+            //      image = document.getElementById('image');
+            //      frames = [
+            //         '0.png', '1.png', '2.png', '3.png', '4.png',
+            //         '5.png', '6.png', '7.png', '8.png', '9.png',
+            //         '10.png', '11.png', '12.png', '13.png', '14.png',
+            //     ];
+            // };
+            //     //타이머 반복을 시작합니다.
+            //     // setInterval(function(){
+            //     //     image.src = frames[count % frames.length];
+            //     //     count = count + 1
+            //     // }, 1000 / 20);
+
+
+            // function start()
+            // {
+            //     res = setInterval(function(){
+            //         image.src = frames[count % frames.length];
+            //         count = count + 1;
+            //     },1000/ 20);
+            // }
+            // function stop()
+            //     {
+            //         clearInterval(res);
+            //     }
+            
+            //달리기
+            //     $(document).ready(function(){
+            //         var res;
+            //         var count = 0;
+            //         var image = document.getElementById('image');
+            //         var frames = [
+            //             '0.png', '1.png', '2.png', '3.png', '4.png',
+            //             '5.png', '6.png', '7.png', '8.png', '9.png',
+            //             '10.png', '11.png', '12.png', '13.png', '14.png',
+            //         ];
+                
+
+            //     $('#btn1').on('click', function(){
+            //         clearInterval(res);
+            //         res = setInterval(function(){
+                        
+            //             image.src = frames[count % frames.length];
+            //             count = count + 1;
+            //         }, 1000 / 20)
+            //     });
+            //     $('#btn2').on('click', function(){
+            //         clearInterval(res);
+            //     });
+            // });
+
+                //객체 추가 메서드
+                // $(document).ready(function(){
+                //     //10회 반복ㅂ합니다
+                //     for (var i = 0; i < 5; i++){
+                //         // 문서객체를 생성합니다
+                //         $('<h1>Create Document Object +' + i +'</h1>').css({
+                //             backgroundColor: 'black',
+                //             color: 'red'
+                //         }).appendTo('body');
+                //     }
+                // });
+
+                //같은내용 표현법 다름 뭘까용
+                // $(document).ready(function () {
+                //         //10회 반복ㅂ합니다
+                //         for (var i = 0; i < 5; i++){
+                //     var dynamic = $('<h1>Create Document Object +' + i + '</h1>').css({
+                //             // 문서객체를 생성합니다
+
+                //             backgroundColor: 'black',
+                //                 color: 'red'
+                //             })
+                //         .appendTo('body');
+                //         }
+                //     });
+                    //삭제
+                    // $(document).ready(function(){
+                    //     $('button').click(function(){
+                    //         $(h1).remove('#rm');
+                    //     });
+                    // });
+
+                //         //버튼클릭으로 테이블 추가/삭제
+                //    $(document).ready(function () {
+                //         $("#btnAdd").click(function () {
+                //             var row = '<tr><td><input type="text" name="id" size="10"></td>';
+                //                 row += '<td><input type="text" name="irum" size="10"></td> '
+                //                 row += '<td><input type="button" class="btnDel" value="Del">'
+                //                 row += '</td></tr>';
+
+                //             $("#list").append(row);
+                //         })
+                //         $("#list").on("click", ".btnDel", function () {
+                //             $(this).parent().parent().remove();
+                //         });
+                //     });
+    // $(document).ready(function () {
+    //     //이벤트를 연결합니다.
+    //     $('body').html('<h1>click</h1>');
+    //     $('h1').click(function(){ //정적인 요소 방법
+    //         //이벤트를 연결합니다.
+    //         alert('클릭!');
+    //         $('h1').on('click', function(){
+    //             alert ('클릭'); //동적인요소방법
+    //         })
+    //     });
+    // });
+
+//버튼클릭으로 테이블 추가/삭제
+    // $(document).ready(function () {
+    //     $("#btnAdd").click(function () {
+    //         var row = '<tr><td><input type="text" name="id" size="10"></td>';
+    //         row += '<td><input type="text" name="irum" size="10"></td> '
+    //         row += '<td><input type="button" class="btnDel" value="Del">'
+    //         row += '</td></tr>';
+
+    //         $("#list").append(row);
+    //     })
+    //     $("#list").on("click", ".btnDel", function () {
+    //         $(this).parent().parent().remove();
+    //     });
+    // });
+
+//
+$(document).ready(function(){
+    $("#btnAdd").click(function(){
+        var row = `<tr align= 'center'>
+                        <td>${$('#irum').val()}</td>
+                        <td>${$('#score').val()}</td>
+                        <td><input type="button" class="btnDel"value="Del"></td>
+                    </tr>`;
+
+                $('#list').append(row);
+                $('#irum').val('');
+                $('#score').val('');
+    });
+    $("#list").on("click",".btnDel",function(){
+        $(this).parent().parent().remove();
+    });
+});
+
+
+    </script>
+<style>
+    /* div{border: 1px solid #000;}
+    #outer{
+        background-color: blue;
+        width: 100px;
+        height: 100px;
+    } */
+</style>
+    
+</head>
+<body>
+<!-- <button onClick="tag_insert()">태그추가</button> -->
+<!-- <button>Toggle Show</button>
+<div class="page"></div>
+<h1>아리아라아라라라라아다가마나다라푸너어</h1>
+<p>굿모닝야 Good morning yah</p> -->
+
+<!-- <div id ='box'></div> -->
+<!-- 
+<input type="text" maxlength="6"/>
+<span>-</span>
+<input type="text" maxlength="7"> -->
+
+<!-- <input type="button" value="시작" onclick="start()">
+<input type="button" value="정지" onclick="stop()"> -->
+
+<!-- 달리기 -->
+<!-- <input type="button" id="btn1" value="시작">
+<input type="button" id="btn2" value="정지">
+<img id ="image"/> -->
+
+<!-- 삭제버튼 -->
+<!-- <button>h1 삭제</button>
+<h1 id="rm">h1</h1> -->
+
+<!-- 버튼클릭으로 테이블 추가/삭제 -->
+   <table border="1" align="center">
+    <tr>
+        <td><input type ="text" id="irum" size="5" placeholder="이름입력"></td>
+        <td><input type="text" id="score" size="5" placeholder="점수입력"></td>
+        <td><input type="button" id="btnAdd" value="추가"></td>
+    </tr>
+   </table>
+   <br>
+   <table id = "list" border="1" align="center">
+    <tr>
+        <th width="70px">이름</th>
+        <th width="70px">점수</th>
+        <th width="50px">&nbsp;</th>
+    </tr>
+   </table>
+</body>
+</html>
