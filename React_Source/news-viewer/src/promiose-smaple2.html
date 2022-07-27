@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // async function f() {
+        //     let promis = new Promise((resolve, reject)=> {
+        //         setTimeout(()=> resolve("완료!"),1000)
+        //     });
+        // let result = await Promise; //프라미스가 이행될 때까지 기다림 (*)
+
+        // alert(result); //"완료!!""
+        // }
+
+        // f();
+
+        function increase(number) {
+            const promise = new Promise((resolve, rejext)=>{
+                setTimeout(()=>{
+                    const result = number +10;
+                    if (result > 50) {
+                        const e =new Error('NumberTooBig');
+                        return reject(e);
+                    }
+                    resolve(result);
+                }, 1000)
+            });
+            return promise;
+        }
+        async function runTasks(){
+            try{
+                let result= await increase(0)
+                console.log(result);
+                result= await increase(0)
+                console.log(result);
+                result= await increase(0)
+                console.log(result);
+                result= await increase(0)
+                console.log(result);
+                result= await increase(0)
+                console.log(result);
+                result= await increase(0)
+                console.log(result);
+                result= await increase(0)
+                console.log(result);
+                result= await increase(0)
+                console.log(result);
+            }
+            catch(e){
+comsole.log(result);
+        }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,69 +1,114 @@
-import { useState } from "react";
-import { useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
+
+import Dots from "./Dots";
+
 import "./App.css";
-import TodoTemplate from "./components/TodoTemplate";
-import JoinInserts from "./components/JoinInserts";
-import JoinList from "./components/JoinList";
 
-function App() {
-  const [joins, setJoins] = useState([]); //joins 전체 데이터 관리 , 여러 데이터를 관리 하기 때문에 배열구조
-  const [form, setForm] = useState({}); // form 출력되는 데이터 관리 한개의 데이터를  관리 하니 객체구조
+const DIVIDER_HEIGHT = 5;
 
-  // ref를 사용하여 변수 담기
-  const nextNum = useRef(0); //각 데이터
+const App = () => {
+  const [ScrollY, setScrollY] = useState(0);
+  const [BtnStatus, setBtnStatus] = useState(false); // 버튼 상태
+  const outerDivRef = useRef();
+  const [scrollIndex, setScrollIndex] = useState(1);
+  useEffect(() => {
+    const wheelHandler = (e) => {
+      e.preventDefault();
+      const { deltaY } = e;
+      const { scrollTop } = outerDivRef.current; // 스크롤 위쪽 끝부분 위치
+      const pageHeight = window.innerHeight; // 화면 세로길이, 100vh와 같습니다.
 
-  const onInsert = useCallback(
-    // oninsert는 등록하는 기능만 한다.  입력받은 데이터를 valueㄹ=에 저장하고 value에
-    (value) => {
-      value.num = nextNum.current; //nextnum.currnet로 num의 value에 접근해서 기존의 joins에 접근해서 setjoins를 통해서 joins의 value의 값을 바꿔준다.
-      setJoins(joins.concat(value)); //새로 등록할 입력받은 데이터에 아직 num이 부여가 안되어 있으니까 , 다음 번호를 nxet.num을 통해서 번호를 부여한다.
-      nextNum.current += 1;
-      // setForm({}); // 수정할 데이터를 관리하기 위한 용도
-    },
-    [joins] //
-  );
-
-  const onUpdateForm = useCallback(
-    // 수정 버튼 누르면 다시 회원관리 창으로 불러오는 작업 수행한다.
-    (idx) => {
-      // 인덱스를 가지고 수정할 데이터의 위치를 찾고 회원관리의 위치를 찾는 것
-      setForm(joins[idx]);
-    },
-    [joins]
-  );
-
-  const onUpdate = useCallback(
-    // 수정버튼을 통해 불러진 데이터를 수정후 다시 등록해서 원래 자료를 수정한다.
-    (updateJoin) => {
-      setJoins(
-        joins.map((data) => (data.num === updateJoin.num ? updateJoin : data)) //map은 배열을 반환 시켜준다. 배열 의 숫자만큼 함수를 반복한다. 그리고 가지고 있는 데이터의 num을 비교해서 일치하는 데이터를 찾고, 찾으면  새로운 새로운 배열을 만들고 joins의 기존의 데이터 대신 수정된값으로 바꿔준 뒤 새로운 배열로 기존의 배열을 교체해준다. 여기서 바뀐 해당 데이타외에는 이전과 동일한 데이터를 갖고있다. 그리고 새롭게 바뀐 배열을 joins에 넣어줘서 수정 데이터를 저장한다.
-      );
-      setForm({});
-    },
-    [joins]
-  );
-
-  const onRemove = useCallback(
-    (num) => {
-      setJoins(joins.filter((join) => join.num !== num));
-    },
-    [joins]
-  );
+      if (deltaY > 0) {
+        // 스크롤 내릴 때
+        if (scrollTop >= 0 && scrollTop < pageHeight) {
+          //현재 1페이지
+          console.log("현재 1페이지, down");
+          outerDivRef.current.scrollTo({
+            top: pageHeight + DIVIDER_HEIGHT,
+            left: 0,
+            behavior: "smooth",
+          });
+          setScrollIndex(2);
+        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
+          //현재 2페이지
+          console.log("현재 2페이지, down");
+          outerDivRef.current.scrollTo({
+            top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+            left: 0,
+            behavior: "smooth",
+          });
+          setScrollIndex(3);
+        } else {
+          // 현재 3페이지
+          console.log("현재 3페이지, down");
+          outerDivRef.current.scrollTo({
+            top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
+            left: 0,
+            behavior: "smooth",
+          });
+          setScrollIndex(3);
+        }
+      } else {
+        // 스크롤 올릴 때
+        if (scrollTop >= 0 && scrollTop < pageHeight) {
+          //현재 1페이지
+          console.log("현재 1페이지, up");
+          outerDivRef.current.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+          setScrollIndex(1);
+        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
+          //현재 2페이지
+          console.log("현재 2페이지, up");
+          outerDivRef.current.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+          setScrollIndex(1);
+        } else {
+          // 현재 3페이지
+          console.log("현재 3페이지, up");
+          outerDivRef.current.scrollTo({
+            top: pageHeight + DIVIDER_HEIGHT,
+            left: 0,
+            behavior: "smooth",
+          });
+          setScrollIndex(2);
+        }
+      }
+      const handleTop = () => {
+        // 클릭하면 스크롤이 위로 올라가는 함수
+        window.scrollTo({
+          top: 2000,
+          behavior: "smooth",
+        });
+        setScrollY(0); // ScrollY 의 값을 초기화
+        setBtnStatus(false); // BtnStatus의 값을 false로 바꿈 => 버튼 숨김
+      };
+    };
+    const outerDivRefCurrent = outerDivRef.current;
+    outerDivRefCurrent.addEventListener("wheel", wheelHandler);
+    return () => {
+      outerDivRefCurrent.removeEventListener("wheel", wheelHandler);
+    };
+  }, []);
 
   return (
-    <TodoTemplate>
-      <JoinInserts
-        onInsert={onInsert}
-        form={form}
-        onUpdate={onUpdate}
-      ></JoinInserts>
-      <JoinList //joinlist를 통해서
-        joins={joins} // 전체 데이터를 받아온다.
-        onRemove={onRemove}
-        onUpdateForm={onUpdateForm}
-      ></JoinList>
-    </TodoTemplate>
+    <div ref={outerDivRef} className="outer">
+      <Dots scrollIndex={scrollIndex} />
+      <button type="submit" onClick={handleTop}>
+        asd
+      </button>
+      <div className="inner bg-yellow">1</div>
+      <div className="divider"></div>
+      <div className="inner bg-blue">2</div>
+      <div className="divider"></div>
+      <div className="inner bg-pink">3</div>
+    </div>
   );
-}
+};
 
 export default App;

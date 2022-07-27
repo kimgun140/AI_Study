@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // const promis1 = new Promise((resolve, reject) => {
+        //     resolve(); //then()메서드 실행
+        //     // reject(); // catch()메서드 실행
+        // });
+        // promis1
+        // .then(()=> {
+        //     console.log("then!");
+        // })
+        // .catch(()=> {
+        //     console.log("catch!");
+        // });
+        function increase (number){ //아래의 promise함수는  파라매터로 사용되는 함수는 실행자(executor)라고 한다.
+            const promise = new Promise((resolve, reject)=> {
+                //resolve는성공, reject는 실패
+                setTimeout(()=> {
+                    const result = number + 10;
+                    if (result > 50) {
+                        //50보다 높으면 에러 발생시키기
+                        const e = new Error('NumberToobig');
+                        return reject(e);
+                    }
+                    resolve(result);//number값에 +10 후 성공 처리
+                }, 1000);
+            });
+            return promise
+        }
+        increase(0)
+        .then(number => {
+            console.log(number);
+            return increase(number);
+        })
+        .then(number => {
+            console.log(number);
+            return increase(number);
+        })
+        .then(number => {
+            console.log(number);
+            return increase(number);
+        })
+        .then(number => {
+            console.log(number);
+            return increase(number);
+        }).then(number => {
+            console.log(number);
+            return increase(number);
+        }).then(number => {
+            console.log(number);
+            return increase(number);
+        }).then(number => {
+            console.log(number);
+            return increase(number);
+        }).then(number => {
+            console.log(number);
+            return increase(number);
+        }).then(number => {
+            console.log(number);
+            return increase(number);
+        }).then(number => {
+            console.log(number);
+            return increase(number);
+        }).then(number => {
+            console.log(number);
+            return increase(number);
+        }).then(number => {
+            console.log(number);
+            return increase(number);
+        }).then(number => {
+            console.log(number);
+            return increase(number);
+        }).then(number => {
+            console.log(number);
+            return increase(number);
+        }).then(number => {
+            console.log(number);
+            return increase(number);
+        }).then(number => {
+            console.log(number);
+            return increase(number);
+        })
+        .catch(e => {
+            console.log(e);
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
