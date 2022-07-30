@@ -1,0 +1,10 @@
+body {
+  background-color: white;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+}
+
+::selection {
+  background-color: #d1d1d1;
+}
