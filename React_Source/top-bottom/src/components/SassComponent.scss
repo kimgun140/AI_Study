@@ -1,0 +1,30 @@
+@import './utils';/*변수파일 import*/
+
+.SassComponent{
+  display:flex;
+  
+  @include mobile{ 
+  /*브라우저 사이즈767px이하일때*/
+    background: pink;
+  }
+  @include tablet{
+  /*브라우저 사이즈1023px이하일때*/
+    background: blanchedalmond;
+  }
+  @include desktop{
+  /*브라우저 사이즈1024px이상일때*/
+    background: gray;
+  }
+  .box{
+    background: red;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+
+    &.red{
+      background: $red; /*변수파일에 있는 red변수 사용*/
+      @include square(5); 
+      /* 5를 넣으므로 넓이, 높이를 mixin suqare에서 계산해줌 */
+    }
+    
+  }
+}
