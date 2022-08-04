@@ -1,15 +1,15 @@
 import { useParams } from "react-router-dom";
 
-const page = () => {
+const Page = () => {
   const { id } = useParams;
   return (
     <div>
-      왜안돼
+      응 잘돼~
       <ul>
-        <h2>게시글{id}</h2>
+        <h2>게시글 {id}</h2>
       </ul>
     </div>
   );
 };
 
-export default page;
+export default Page;

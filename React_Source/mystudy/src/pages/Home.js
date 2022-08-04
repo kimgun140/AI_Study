@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 const home = () => {
   //   const Location = useLocation;
   return (
@@ -11,10 +11,10 @@ const home = () => {
         <Link to="/page">Page</Link>
       </ul>
       <ul>
-        <Link to="/Pages">Pages</Link>
+        <Link to="/pages">Pages</Link>
       </ul>
       <ul>
-        <Link to="/Component">Component</Link>
+        <Link to="/component">Component</Link>
       </ul>{" "}
       {/* <p>꿔리쓰뜨링: {Location.search}</p> */}
     </div>

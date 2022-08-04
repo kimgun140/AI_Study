@@ -1,20 +1,19 @@
 import { Link, Outlet } from "react-router-dom";
 
-const pages = () => {
+const Pages = () => {
   return (
     <div>
       <Outlet />
       <ul>
-        <Link to="/Pages/1">Page1</Link>
+        <Link to="/pages/1">Page 1</Link>
       </ul>
       <ul>
-        <Link to="/Pages/2">Page2</Link>
+        <Link to="/pages/2">Page 2</Link>
       </ul>
       <ul>
-        <Link to="/Pages/3">Page3</Link>
+        <Link to="/pages/3">Page 3</Link>
       </ul>
-      <p>꿔리쓰뜨링: {Location.search}</p>
     </div>
   );
 };
-export default pages;
+export default Pages;

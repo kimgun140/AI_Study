@@ -8,7 +8,7 @@ const About = () => {
   //   const onToggleDeai
   return (
     <div>
-      <h1>소ㅓ개</h1>
+      <h1>소개</h1>
       <p>리액터 라우터를 사용해 보는 프로젝트입니다.</p>
       <p>쿼리스트링: {location.search}</p>
     </div>
