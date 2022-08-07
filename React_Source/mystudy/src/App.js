@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import Page from "./pages/Page";
 import Pages from "./pages/Pages";
 import Layout from "./Layout";
+import Profile from "./pages/Profile";
+import About from "./pages/About";
 // import Layout from "./Layout";
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/page" element={<Page />} />
         <Route path="/component" element={<Component />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/profiles/:username" element={<Profile />} />
         <Route path="/pages" element={<Pages />}>
           <Route path=":id" element={<Page />} />
         </Route>
