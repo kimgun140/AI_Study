@@ -13,6 +13,9 @@ const Pages = () => {
       <ul>
         <Link to="/pages/3">Page 3</Link>
       </ul>
+      <ul>
+        <Link to="/pages/4">Page 4</Link>
+      </ul>
     </div>
   );
 };

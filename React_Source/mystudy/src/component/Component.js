@@ -164,7 +164,6 @@ const Component = () => {
         <li> 1부터 증가하는 값 자동 입력</li>
         <li>적용할 열이 PRIMARY KEY 또는 UNIQUE일 때만 사용가능</li>
         <li>데이터 형은 숫자 형식만 사용 가능</li>
-
         <ul>
           <ul>
             <h2>데이터의 삽입 : INSERT</h2>
@@ -261,17 +260,106 @@ const Component = () => {
           <li>변수 사용 실습</li>
           <img src="" alt="#"></img>
         </del>
-        <h3>데이터 형식 변환 함수</h3>
-        <li>CAST( ), CONVERT( ) 함수를 가장 일반적으로 사용</li>
-        <li>
-          데이터 형식 중에서 가능한 것은 BINARY, CHAR, DATE, DATETIME, DECIMAL,
-          JSON, SIGNED INTEGER, TIME, UNSIGNED INTEGER
-        </li>
-        <li>
-          함수 사용법
-          <img src="i6" alt="#"></img>
-          <img src="i7" alt="#"></img>
-        </li>
+        <ul>
+          <h3>데이터 형식 변환 함수</h3>
+          <li>CAST( ), CONVERT( ) 함수를 가장 일반적으로 사용</li>
+          <li>
+            데이터 형식 중에서 가능한 것은 BINARY, CHAR, DATE, DATETIME,
+            DECIMAL, JSON, SIGNED INTEGER, TIME, UNSIGNED INTEGER
+          </li>
+          <li>
+            함수 사용법
+            <img src="i6" alt="#"></img>
+            <img src="i7" alt="#"></img>
+          </li>
+        </ul>
+        <ul>
+          <h2> 6장 익스프레스 웹서버 만들기 </h2>
+          <li>wellkownon: 0~1023까지 용도가 정해진 포트넘버</li>
+          <li>
+            1024~65535번 포트는 우리가 사용가능한 포트넘버 포트
+            <ul>포트넘버는 16 bit로 표현된다.</ul>
+          </li>
+          <li>app.get: get방식 요청 처리 </li>
+          <li>
+            app.post: post방식 요청처리
+            <ul>
+              폼태그에 post방식으로 지정해주지 않으면 기본설정은 get방식이라고
+              할 수 있다.{" "}
+            </ul>
+            <li>
+              http(Hyper Text Transfer Protocol)프로토콜(protocol: 통신규약
+              약소쿠 ): 헤더 + 바디(몸체)
+              <ul>get방식이 보이는거 post 방식이 안보이는 방식이다</ul>
+              <ul>개인정보같은 정보는 post 방식으로 데이터를 보낸다.</ul>
+              <ul>
+                header안에 프로토콜종류, 포트넘버(어떤 이유로 사용하는지
+                메일인지 뭔지 정해진 포트넘버로 보내짐), http방식에서는 get인지
+                post인지, 정보를 보내줄 주소등등 데이터설계가 되어있고 <br />
+                웹브라우저와 웹서버간의 데이터를 주고받는 과정에서 <br />
+                header에 적혀진 데이터를 무슨 방법으로 읽어야하는지, 전달된
+                데이터를 나에게 맞게끔 읽어오는 방식등을 담겨져 온다.
+                <br />
+                <img src="" alt="#" />
+                req에는 요청객체 res에는 응답객체가 담겨져있다.
+                <br /> req에서 필요한 데이터를 서버에 요청을하고, res에는
+                클라이언트에게 요청받은 데이터를 서버가 보내주는 데이터가
+                담긴다.
+                <br />
+                res.send에 서버에서처리한 데이터를 클라이언트에게 다시 보내주는
+                것.
+                <br />
+                app.listen: 서버가 스탠바이 상태에서 기다리고 있다가
+                클라이언트에서 보내준 요청을 인식하는 과정
+                <br />
+                req에서 리퀘스트 객체에 클라이언트가 서버에 원하는 정보를
+                담겨있다.
+                <br />
+                어떤 포트넘버에서 요청이 들어오면 수락하고 요청을 해석해서
+                일치하는 url을 찾고 서버에서 찾아서 처리작업이 끝나면 res에
+                담아서 보내주게 된다. url을 찾고 수행한다.
+                <br />
+                <del>
+                  form action="" method="get/post" enctype="파일첨부기능"
+                </del>
+                <br />
+                폼태그에서 메소드를 get/post를 사용할 때 axios.get("주소", {}
+                )이러한 파라매터들을 get방식으로 가져오게된다. axios.post()
+              </ul>
+              <img src="" alt="#" />
+            </li>
+          </li>
+          <li>
+            npm start 하면 "nodemon app" 을 실행한다. nodemon으로 app.js파일을
+            실행한다는 말
+          </li>
+        </ul>
+        <ul>
+          <h2>session 과 cookie </h2>
+          <ul>
+            세션과 쿠키 쿠키는 클라이언트에 저장되는 정보, 세션은 서버에
+            저장되는 정보 <br />
+            클라이언트에서 요청이 들어오면 서버는 세션을 만들고 그 안에 세션
+            아이디를 생성한다. <br />
+            이과정은 다음에 클라이언트에서 요청을 보냈을 때 해당 클라이언트가
+            기존의 사용자인지 아닌지를 식별한다.
+            <br />
+            http프로토콜은 연결상태를 유지할 수 없는 특징을 갖는다. 요청을
+            응답하고나면 서버와 클라이언트간의 연결이 끊겨버린다. <br />
+            쿠키는 보안에 취약한 클라이언트에서 관리하므로 보안에 취약하다.
+            세션은 서버의 자원을 많이 소비하기 때문에 쿠키와 함께 사용해서
+            <br /> 서버자원의 낭비를 방지하여 웹사이트의 속도를 높일 수 있다.
+          </ul>
+          <li>
+            6.2.7
+            {/* <form action=""method="" encType="" >
+            
+            </form>*/}
+          </li>
+        </ul>
+        <ul>
+          <h2>라우팅 객체로 라우터 불리하기</h2>
+        </ul>
       </ul>
     </div>
   );
