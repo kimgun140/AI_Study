@@ -1,0 +1,14 @@
+.jumun {
+  width: 100px;
+  height: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  background: #f1c204;
+  border-radius: 5px;
+  right: 5px;
+}
+.jumun:hover {
+  scale: 0.95;
+  transition: 0.3s;
+}

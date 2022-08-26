@@ -1,0 +1,71 @@
+.article_num {
+  position: absolute;
+  border-radius: 3px;
+  border-bottom: solid 2px;
+  border-right: solid 2px;
+  width: 20px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+.article_title {
+  position: absolute;
+  margin-left: 30px;
+  font-family: "BMJUA";
+  font-size: 22px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.article_writer {
+  position: absolute;
+  margin-top: 68px;
+  font-family: "BMJUA";
+  margin-left: 180px;
+  font-size: 15px;
+}
+.article_location {
+  position: absolute;
+  font-family: "BMJUA";
+  margin-top: 25px;
+  margin-left: 30px;
+}
+.article_date {
+  position: relative;
+  font-family: "BMJUA";
+  float: right;
+  margin-top: 70px;
+  right: 10px;
+  font-size: 12px;
+}
+.article_btn {
+  position: absolute;
+  font-family: "BMJUA";
+  background-color: rgb(247, 208, 53);
+  border: none;
+  top: 30px;
+  left: 250px;
+  cursor: pointer;
+}
+
+.G_div {
+  border: solid;
+  border-color: gray;
+  position: relative;
+  width: 348px;
+  height: 90px;
+  left: 14px;
+  top: 20px;
+  margin-top: 20px;
+  overflow: hidden;
+  border-radius: 5px;
+  /* background-color: white; */
+  background-color: beige;
+}
+.mapicon {
+  width: 3rem;
+  height: 1.5rem;
+  margin-top: 4px;
+}
+.btitle {
+  color: rgb(3, 146, 179);
+}

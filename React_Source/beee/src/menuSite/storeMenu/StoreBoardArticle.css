@@ -1,0 +1,29 @@
+.chicken_div {
+  background-color: beige;
+  width: 90%;
+  margin-left: 5%;
+  border-radius: 10px;
+  font-family: "BMJUA";
+  border: solid;
+  border-color: gray;
+}
+
+.entrance {
+  width: 50px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  font-style: normal;
+  background: #f1c204;
+  border-radius: 10px;
+  border: none;
+  font-family: "BMJUA";
+}
+
+.store_content2 {
+  float: left;
+}
+.store_content3 {
+  text-align: left;
+}

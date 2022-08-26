@@ -1,0 +1,210 @@
+/* .gaip_table {
+} */
+
+.logo1 {
+  width: 200px;
+  height: 35px;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  font-weight: 600;
+  font-size: 30px;
+  font-style: normal;
+  font-family: "DO Hyeon";
+  text-align: center;
+  color: #333403;
+  margin: 0 auto;
+  position: static;
+
+  /* animation: fadein 1s; */
+}
+/* @keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
+.gaip_id {
+  margin-right: 20px;
+  width: 250px;
+  height: 35px;
+  font-family: "BMJUA";
+  border: none;
+  border-bottom: solid 1px;
+  background: #f6ebc3;
+  font-size: 17px;
+  padding-left: 10px;
+  /* animation: fadein 2s; */
+}
+/* @keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
+.gaip_pw {
+  margin-right: 20px;
+  width: 250px;
+  height: 35px;
+  font-family: "BMJUA";
+  background: #f6ebc3;
+  font-size: 17px;
+  padding-left: 10px;
+  border: none;
+  border-bottom: solid 1px;
+
+  /* animation: fadein 2.5s; */
+}
+/* @keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
+.gaip_name {
+  margin-right: 20px;
+  width: 250px;
+  height: 35px;
+  font-family: "BMJUA";
+
+  background: #f6ebc3;
+  font-size: 17px;
+  padding-left: 10px;
+  border: none;
+  border-bottom: solid 1px;
+}
+/* @keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
+.gaip_email {
+  margin-right: 20px;
+  width: 250px;
+  height: 35px;
+  font-family: "BMJUA";
+
+  background: #f6ebc3;
+  font-size: 17px;
+  padding-left: 10px;
+  border: none;
+  border-bottom: solid 1px;
+}
+/* @keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
+.gaip_address {
+  margin-right: 20px;
+  width: 250px;
+  height: 35px;
+  font-family: "BMJUA";
+
+  background: #f6ebc3;
+  border: none;
+  border-bottom: solid 1px;
+  font-size: 17px;
+  padding-left: 10px;
+  /* animation: fadein 4s; */
+}
+/* @keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
+.gaip_phone {
+  margin-right: 20px;
+  width: 250px;
+  height: 35px;
+  font-family: "BMJUA";
+
+  background: #f6ebc3;
+  font-size: 17px;
+  border: none;
+  border-bottom: solid 1px;
+  padding-left: 10px;
+  /* animation: fadein 4.5s; */
+}
+/* @keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
+.gaip_button {
+  /* position: absolute; */
+  width: 150px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "BMJUA";
+  cursor: pointer;
+  font-style: normal;
+  background: #f1c204;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  /* animation: fadein 5s; */
+}
+.gaip_button:hover {
+  scale: 0.95;
+  transition: 0.3s;
+}
+.gaip_button {
+  transition: 0.3s;
+}
+/* @keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
+.div111 {
+  text-align: left;
+  margin-left: 51px;
+  font-family: "BMJUA";
+
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.gologin {
+  width: 150px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 40px;
+  cursor: pointer;
+  font-family: "BMJUA";
+
+  font-style: normal;
+
+  background: #f1c204;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.gologin:hover {
+  scale: 0.95;
+  transition: 0.3s;
+}
+.gologin {
+  transition: 0.3s;
+}

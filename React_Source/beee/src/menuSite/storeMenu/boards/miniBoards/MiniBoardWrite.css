@@ -1,0 +1,36 @@
+.boardwrite {
+  width: 290px;
+  height: 32px;
+  background: #f6ebc3;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  /* border-radius: 10px; */
+  font-size: 17px;
+
+  padding-left: 10px;
+  border: none;
+  border-bottom: solid 1px;
+}
+.miniwrite {
+  font-family: "DO Hyeon";
+}
+::placeholder {
+  font-family: "BMJUA";
+  color: gray;
+  font-weight: 600;
+}
+.write_btn1 {
+  width: 75px;
+  height: 28px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  font-style: normal;
+  background: #f1c204;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-family: "BMJUA";
+}
+.write_btn1:hover {
+  scale: 0.95;
+  transition: 0.3s;
+}

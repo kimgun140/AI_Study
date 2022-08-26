@@ -1,0 +1,54 @@
+.hiddenob {
+  visibility: hidden;
+}
+.menu_info {
+  position: absolute;
+  text-align: left;
+  margin-left: 35px;
+  top: 5px;
+  font-family: "BMJUA";
+  font-size: 20px;
+}
+.menu_price {
+  margin-top: 5px;
+}
+.menu_name {
+}
+.Article_img {
+  position: absolute;
+  left: 10px;
+  width: 80px;
+  height: 80px;
+  margin-top: 8px;
+  border: solid;
+  border-radius: 10px;
+}
+.menuch {
+  position: relative;
+  border: solid 2px;
+  margin: 0 auto;
+  border-radius: 10px;
+  height: 100px;
+  margin-top: 20px;
+  width: 360px;
+  background-color: beige;
+  margin-bottom: 10px;
+}
+.checkBox {
+  position: absolute;
+  right: 5px;
+}
+
+.OrderPlus {
+  position: absolute;
+  right: 5px;
+  top: 20px;
+  border: none;
+
+  font-family: "BMJUA";
+  cursor: pointer;
+  font-style: normal;
+  background: #f1c204;
+
+  border-radius: 10px;
+}

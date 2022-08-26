@@ -1,0 +1,238 @@
+.scroll1 {
+  margin-top: 40px;
+  border: none;
+  height: 390px;
+  /* overflow-x: hidden; */
+  overflow: auto;
+  /* overflow-x: hidden; */
+}
+.scroll1::-webkit-scrollbar {
+  width: 10px;
+
+  /* background-color: black; */
+}
+.scroll1::-webkit-scrollbar-thumb {
+  background-color: rgb(187, 180, 180);
+  /* background-color: black; */
+}
+.scroll1::-webkit-scrollbar-track {
+  /* background-color: black; */
+  background-color: #f6ebc3;
+}
+
+::-webkit-scrollbar-track {
+}
+form .logo3 {
+  width: 200px;
+  height: 65px;
+  padding-top: 35px;
+  padding-bottom: 22px;
+  font-weight: 600;
+  font-size: 30px;
+  font-style: normal;
+  font-family: "DO Hyeon";
+
+  text-align: center;
+  color: #333403;
+  margin: 0 auto;
+  position: static;
+
+  /* animation: fadein 1s; */
+}
+.sgaip_id {
+  /* position: absolute; */
+  font-family: "BMJUA";
+  width: 260px;
+  height: 25px;
+
+  /* top: 301px;  */
+  background: #f6ebc3;
+  border: none;
+  margin-top: 20px;
+  border-bottom: solid 1px;
+  font-size: 17px;
+  padding-left: 10px;
+  /* animation: fadein 2s; */
+}
+.sgaip_pw {
+  /* position: absolute; */
+  width: 260px;
+  font-family: "BMJUA";
+  height: 25px;
+  /* top: 301px;  */
+
+  background: #f6ebc3;
+  border: none;
+  margin-top: 20px;
+  border-bottom: solid 1px;
+  font-size: 17px;
+  padding-left: 10px;
+  /* animation: fadein 2s; */
+}
+.sgaip_name {
+  width: 260px;
+  font-family: "BMJUA";
+  height: 25px;
+  background: #f6ebc3;
+  border: none;
+  margin-top: 20px;
+  border-bottom: solid 1px;
+  font-size: 17px;
+  padding-left: 10px;
+  /* animation: fadein 2s; */
+}
+.sgaip_pname {
+  /* position: absolute; */
+  width: 260px;
+  font-family: "BMJUA";
+  height: 25px;
+  /* top: 301px;  */
+  background: #f6ebc3;
+  border: none;
+  margin-top: 20px;
+  border-bottom: solid 1px;
+  font-size: 17px;
+  padding-left: 10px;
+  /* animation: fadein 2s; */
+}
+.sgaip_phone {
+  /* position: absolute; */
+  width: 260px;
+  font-family: "BMJUA";
+  height: 25px;
+  /* top: 301px;  */
+  background: #f6ebc3;
+  border: none;
+  margin-top: 20px;
+  border-bottom: solid 1px;
+  font-size: 17px;
+  padding-left: 10px;
+  /* animation: fadein 2s; */
+}
+#category_select {
+  /* position: absolute; */
+  width: 265px;
+  height: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  border: solid 2px;
+  background: #f6ebc3;
+  border: none;
+  margin-top: 20px;
+  border-bottom: solid 1px;
+  font-size: 17px;
+  padding-left: 10px;
+  /* animation: fadein 2s; */
+}
+.sgaip_dtime {
+  /* position: absolute; */
+  width: 260px;
+  font-family: "BMJUA";
+  height: 25px;
+  /* top: 301px;  */
+  background: #f6ebc3;
+  border: none;
+  margin-top: 20px;
+  border-bottom: solid 1px;
+  font-size: 17px;
+  padding-left: 10px;
+  /* animation: fadein 2s; */
+}
+.sgaip_ohour {
+  /* position: absolute; */
+  width: 260px;
+  font-family: "BMJUA";
+  height: 25px;
+  /* top: 301px;  */
+  background: #f6ebc3;
+  border: none;
+  margin-top: 20px;
+  border-bottom: solid 1px;
+  font-size: 17px;
+  padding-left: 10px;
+  /* animation: fadein 2s; */
+}
+.sgaip_rest {
+  /* position: absolute; */
+  width: 260px;
+  font-family: "BMJUA";
+  height: 25px;
+  /* top: 301px;  */
+  background: #f6ebc3;
+  border: none;
+  margin-top: 20px;
+  border-bottom: solid 1px;
+  font-size: 17px;
+  padding-left: 10px;
+  /* animation: fadein 2s; */
+}
+.sgaip_dfee {
+  /* position: absolute; */
+  width: 260px;
+  font-family: "BMJUA";
+  height: 25px;
+  /* top: 301px;  */
+  background: #f6ebc3;
+  border: none;
+  margin-top: 20px;
+  border-bottom: solid 1px;
+  font-size: 17px;
+  padding-left: 10px;
+  /* animation: fadein 2s; */
+}
+
+.sgaip_button {
+  /* position: absolute; */
+  width: 150px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "BMJUA";
+  cursor: pointer;
+  font-style: normal;
+  background: #f1c204;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  /* animation: fadein 5s; */
+}
+.sgaip_button:hover {
+  scale: 0.95;
+  transition: 0.3s;
+}
+.sgaip_button {
+  transition: 0.3s;
+}
+
+.div112 {
+  text-align: left;
+  margin-left: 54px;
+  margin-bottom: -10px;
+  font-family: "BMJUA";
+}
+#category_select {
+  background-color: beige;
+  font-family: "BMJUA";
+}
+.gologin1 {
+  width: 150px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 40px;
+  cursor: pointer;
+  font-family: "BMJUA";
+
+  font-style: normal;
+
+  background: #f1c204;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.gologin1:hover {
+  scale: 0.95;
+  transition: 0.3s;
+}
+.gologin1 {
+  transition: 0.3s;
+}
