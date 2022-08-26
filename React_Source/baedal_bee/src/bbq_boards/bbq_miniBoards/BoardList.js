@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import BoardArticle from './BoardArticle';
-import PageLink from './PageLink';
-
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import BoardArticle from "./BoardArticle";
+import PageLink from "./PageLink";
+import "./BoardList.css";
 const BoardList = ({
   boardlist,
   actionmode,
@@ -10,9 +10,8 @@ const BoardList = ({
   handledetail,
   handleupdateform,
   handlepage,
-  pagelink
+  pagelink,
 }) => {
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,33 +19,31 @@ const BoardList = ({
   }, []);
 
   const handleLogout = () => {
-    console.log('handleLogout');
+    console.log("handleLogout");
     window.sessionStorage.clear();
     // 세션에 저장된 로그인 정보를 지우며 로그아웃
     console.log(
-      'handleLogout - window.sessionStorage(login_id) : ',
-      window.sessionStorage.getItem('id')
+      "handleLogout - window.sessionStorage(login_id) : ",
+      window.sessionStorage.getItem("id")
     );
-    navigate('/'); // 로그아웃을 할 경우 로그인 페이지로 이동
+    navigate("/login"); // 로그아웃을 할 경우 로그인 페이지로 이동
   };
 
   if (boardlist.boardList.length === 0) {
     return (
       <div>
-        <table width='700px' border='1' align='center'>
+        <table width="700px" border="1" align="center" className="bbq_tq">
           <thead>
             <tr>
-              <th width='100'>주문자</th>
-              <th width='150'>주문내역</th>
-              <th width='100'>가격</th>
-              <th width='100'>수정 / 삭제</th>
+              <th width="100">주문자</th>
+              <th width="150">주문내역</th>
+              <th width="100">가격</th>
+              <th width="100">수정 / 삭제</th>
             </tr>
-            <tr>
-              <input
-                type='button'
-                value='로그아웃'
-                onClick={handleLogout}
-              />
+            <tr align="center">
+              <td colSpan="7">
+                <input type="button" value="로그아웃" onClick={handleLogout} />
+              </td>
             </tr>
           </thead>
         </table>
@@ -55,52 +52,41 @@ const BoardList = ({
   } else {
     return (
       <div>
-        <table width='700px' border='1' align='center'>
-          <thead>
-            <tr>
-              <th width='100'>주문자</th>
-              <th width='150'>주문내역</th>
-              <th width='100'>가격</th>
-              <th width='100'>수정 / 삭제</th>
-            </tr>
-          </thead>
-          <tbody>
-            {boardlist.boardList.map((article) => {
-              return (
-                <BoardArticle
-                  actionmode={actionmode}
-                  article={article}
-                  key={article.comment_name} //물어보기
-                  handlelist={handlelist}
-                  handledetail={handledetail}
-                  handleupdateform={handleupdateform}
-                />
-              )
-            })}
-            <tr>
-              <th colSpan='7'>
-                <input
-                  type='button'
-                  value='로그아웃'
-                  onClick={handleLogout}
-                />
-              </th>
-            </tr>
-          </tbody>
-        </table>
-        <table align='center'>
+        <hr />
+        <div className="as">주문자</div>
+        <div className="sd">주문내역</div>
+        <div className="df">가격</div>
+        <div className="fg">수정 / 삭제</div>
+        <hr />
+        <tbody>
+          {boardlist.boardList.map((article) => {
+            return (
+              <BoardArticle
+                actionmode={actionmode}
+                article={article}
+                key={article.comment_name} //물어보기
+                handlelist={handlelist}
+                handledetail={handledetail}
+                handleupdateform={handleupdateform}
+              />
+            );
+          })}
+          <tr>
+            <th colSpan="7">
+              <input type="button" value="로그아웃" onClick={handleLogout} />
+            </th>
+          </tr>
+        </tbody>
+
+        <table align="center">
           <tfoot>
             <br />
             <tr>
-              <td align='center'>
+              <td align="center">
                 {pagelink.map((page) => {
                   return (
-                    <PageLink
-                      page={page}
-                      key={page}
-                      handlepage={handlepage}
-                    />
-                  )
+                    <PageLink page={page} key={page} handlepage={handlepage} />
+                  );
                 })}
               </td>
             </tr>

@@ -45,7 +45,7 @@ function Main() {
     console.log('window.sessionStorage(login_id) : ', login_id);
     if (login_id === null) {
       alert('게시판 사용을 위해서는 로그인이 필요합니다.');
-      navigate('/')
+      navigate('/login')
     }
   }, []);
 
@@ -59,7 +59,7 @@ function Main() {
   async function getList() {
     // alert('getList(actionMode) : ' + actionMode.mode);
     await axios
-      .get('http://localhost:8008/count', {})
+      .post('http://localhost:8008/count', { query_m: query_m })
       // get : url의 데이터 전달 방식을 지정한 것
       // (url에 요청 정보가 노출되는 위험이 있음)
       .then((res) => {
@@ -239,7 +239,7 @@ function Main() {
         {/* <BoardWrite
           handlelist={getList}
         /> */}
-        <h1 align='center'>호식이 두 마리 치킨 그룹방</h1>
+        <h1 align='center'>BBQ 그룹방</h1>
         <br />
         <BoardList
           boardlist={boardlist}

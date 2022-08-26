@@ -27,7 +27,7 @@ const BoardList = ({
       'handleLogout - window.sessionStorage(login_id) : ',
       window.sessionStorage.getItem('id')
     );
-    navigate('/'); // 로그아웃을 할 경우 로그인 페이지로 이동
+    navigate('/login'); // 로그아웃을 할 경우 로그인 페이지로 이동
   };
 
   if (boardlist.boardList.length === 0) {
@@ -41,12 +41,14 @@ const BoardList = ({
               <th width='100'>가격</th>
               <th width='100'>수정 / 삭제</th>
             </tr>
-            <tr>
-              <input
-                type='button'
-                value='로그아웃'
-                onClick={handleLogout}
-              />
+            <tr align="center">
+              <td colSpan='7'>
+                <input
+                  type='button'
+                  value='로그아웃'
+                  onClick={handleLogout}
+                />
+              </td>
             </tr>
           </thead>
         </table>

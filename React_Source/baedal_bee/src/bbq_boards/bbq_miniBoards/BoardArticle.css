@@ -1,0 +1,22 @@
+.orderid{
+    display: inline;
+
+}
+.orderdivvv{
+   width: 200px;
+    display: inline;
+}
+.orderdiv{
+    display: inline;
+}
+.ordercontent{
+    display: inline;
+    margin-left:70px ;
+}
+.order_price{display: inline;
+    margin-left: 50px;
+}
+.order_button{
+    display: inline;
+    /* margin-left: 1px; */
+}

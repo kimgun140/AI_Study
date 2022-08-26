@@ -39,6 +39,7 @@ const db = mysql.createPool({
 const multer = require("multer"); //파일 업로드
 const path = require("path"); //경로
 const fs = require("fs"); //파일다룰 수 있는 패키지
+const { parse } = require("path");
 
 try {
   //업로드 폴더가 존재하는지 확인하고 없으면 업로드 폴더를 만든다.
@@ -57,7 +58,7 @@ const upload = multer({
     filename(req, file, done) {
       //파일 이름을 어떻게 설정할 것인가 오리지날 파일 이름을 쓰고 싶으면 그냥 저장하고, 같은 이름이 있으면 확장자를 제외한 이름만 추출하고 현재 시간을 가져오고 다시 확장자를 붙여준다.
       const ext = path.extname(file.originalname);
-      done(null, path.basename(file.originalname, ext));
+      done(null, path.basename(file.originalname, ext) + ext);
     },
   }),
   limits: { fileSize: 10 * 1024 * 1024 },
@@ -177,6 +178,34 @@ app.post("/list", (req, res) => {
 });
 // DB 테이블 가져오기
 
+app.post("/chickenlist", (req, res) => {
+  // axios에서 get 방식으로 요청한 정보 중에 /list에 대한 정보를 서버에 전송
+  console.log("List");
+
+  var page_num = parseInt(req.body.page_num);
+  var page_size = parseInt(req.body.page_size);
+
+  console.log(
+    "List(page_num, page_size, article_count)",
+    page_num,
+    ", ",
+    page_size
+  );
+
+  const start_limit = (page_num - 1) * page_size;
+
+  console.log("List(start_limit, page_size)", start_limit, ", ", page_size);
+
+  const sqlQuery =
+    "SELECT store_name, store_phone, store_deliveryFee FROM storeInfo_tbl LIMIT ?, ?;";
+  db.query(sqlQuery, [start_limit, page_size], (err, result) => {
+    res.send(result);
+    // select를 사용해서 가져올 결과물을 전달함 (객체 구조)
+    // 여기서 result는 검색한 내용이 담겨져 있음
+  });
+});
+// DB 테이블 가져오기
+
 app.post("/minilist", (req, res) => {
   // axios에서 get 방식으로 요청한 정보 중에 /list에 대한 정보를 서버에 전송
   console.log("List");
@@ -201,7 +230,7 @@ app.post("/minilist", (req, res) => {
   // db.query(sqlQuery_data)
 
   const sqlQuery =
-    "SELECT comment_name, comment_content, comment_price FROM comment_tbl WHERE comment_boardNum = ? LIMIT ?, ?;";
+    "SELECT comment_name, comment_content, comment_price, comment_userId FROM comment_tbl WHERE comment_boardNum = ? LIMIT ?, ?;";
   db.query(sqlQuery, [number, start_limit, page_size], (err, result) => {
     res.send(result);
     // select를 사용해서 가져올 결과물을 전달함 (객체 구조)
@@ -215,6 +244,9 @@ app.post("/menulist", (req, res) => {
 
   var page_num = parseInt(req.body.page_num);
   var page_size = parseInt(req.body.page_size);
+  var menu_storeId = req.body.menu_storeId;
+
+  // console.log('----------------', menu_storeId);
 
   console.log(
     "List(page_num, page_size, article_count)",
@@ -228,8 +260,8 @@ app.post("/menulist", (req, res) => {
   console.log("List(start_limit, page_size)", start_limit, ", ", page_size);
 
   const sqlQuery =
-    "SELECT menu_pictureUrl, menu_name, menu_price FROM menu_tbl LIMIT ?, ?;";
-  db.query(sqlQuery, [start_limit, page_size], (err, result) => {
+    "SELECT menu_pictureUrl, menu_name, menu_price FROM menu_tbl WHERE menu_storeId = ? LIMIT ?, ?;";
+  db.query(sqlQuery, [menu_storeId, start_limit, page_size], (err, result) => {
     res.send(result);
     // select를 사용해서 가져올 결과물을 전달함 (객체 구조)
     // 여기서 result는 검색한 내용이 담겨져 있음
@@ -237,17 +269,67 @@ app.post("/menulist", (req, res) => {
 });
 // DB 테이블 가져오기
 
-app.get("/count", (req, res) => {
+app.post("/usermenulist", (req, res) => {
+  // axios에서 get 방식으로 요청한 정보 중에 /list에 대한 정보를 서버에 전송
+  console.log("List");
+
+  var page_num = parseInt(req.body.page_num);
+  var page_size = parseInt(req.body.page_size);
+  var menu_storeId = req.body.menu_storeId;
+
+  console.log("----------------", menu_storeId);
+
+  console.log(
+    "List(page_num, page_size, article_count)",
+    page_num,
+    ", ",
+    page_size
+  );
+
+  const start_limit = (page_num - 1) * page_size;
+
+  console.log("List(start_limit, page_size)", start_limit, ", ", page_size);
+
+  const sqlQuery =
+    "SELECT menu_pictureUrl, menu_name, menu_price FROM menu_tbl WHERE menu_storeId = ? LIMIT ?, ?;";
+  db.query(sqlQuery, [menu_storeId, start_limit, page_size], (err, result) => {
+    res.send(result);
+    // select를 사용해서 가져올 결과물을 전달함 (객체 구조)
+    // 여기서 result는 검색한 내용이 담겨져 있음
+  });
+});
+// DB 테이블 가져오기
+
+app.post("/count", (req, res) => {
   console.log("Count");
-  const sqlQuery = "SELECT COUNT(*) AS COUNT FROM board_tbl;";
-  db.query(sqlQuery, (err, result) => {
+  var query_m = req.body.query_m;
+  console.log(query_m);
+
+  const sqlQuery =
+    "SELECT COUNT(*) AS COUNT FROM board_tbl WHERE board_store = ?;";
+  db.query(sqlQuery, [query_m], (err, result) => {
     res.send(result);
   });
 });
 
-app.get("/count", (req, res) => {
+app.post("/minicount", (req, res) => {
   console.log("Count");
-  const sqlQuery = "SELECT COUNT(*) AS COUNT FROM board_tbl where board_store;";
+  var number = req.body.number;
+  console.log(number);
+
+  const sqlQuery =
+    "SELECT COUNT(*) AS COUNT FROM comment_tbl WHERE comment_boardNum = ?;";
+  db.query(sqlQuery, [number], (err, result) => {
+    res.send(result);
+  });
+});
+
+app.post("/chickencount", (req, res) => {
+  console.log("Count");
+  // var number = req.body.number;
+  // console.log(number);
+
+  const sqlQuery = "SELECT COUNT(*) AS COUNT FROM storeInfo_tbl;";
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
@@ -283,28 +365,6 @@ app.post("/insert", (req, res) => {
   );
 });
 // DB 테이블에 내용 삽입하기
-app.post("/bbqinsert", (req, res) => {
-  console.log("/bbqinsert", req.body);
-  var title = req.body.title;
-  var writer = req.body.writer;
-  var content = req.body.content;
-  var location = req.body.location;
-  var query_w = req.body.query_w;
-
-  const sqlQuery =
-    "INSERT INTO board_tbl (BOARD_WRITER, BOARD_TITLE, BOARD_CONTENT, BOARD_LOCATION, BOARD_STORE) VALUES (?, ?, ?, ?, ?);";
-  // (?, ?, ?) : [writer, title, content]를 파라미터 값으로 받아온다는 의미
-  db.query(
-    sqlQuery,
-    [writer, title, content, location, query_w],
-    (err, result) => {
-      // res.send(result);
-      res.send("확인");
-      // 여기서 result는 아무 내용이 담겨있지 않음
-    }
-  );
-});
-// DB 테이블에 내용 삽입하기
 
 app.post("/miniinsert", (req, res) => {
   console.log("/miniinsert", req.body);
@@ -312,16 +372,23 @@ app.post("/miniinsert", (req, res) => {
   var comment_content = req.body.comment_content;
   var comment_price = req.body.comment_price;
   var comment_boardNum = req.body.comment_boardNum;
+  var comment_userId = req.body.comment_userId;
 
   // const sqlQuery_sel =
   //   'SELECT board_num FROM board_tbl';
 
   const sqlQuery =
-    "INSERT INTO comment_tbl (comment_name, comment_content, comment_price, comment_boardNum) VALUES (?, ?, ?, ?);";
+    "INSERT INTO comment_tbl (comment_name, comment_content, comment_price, comment_boardNum, comment_userId) VALUES (?, ?, ?, ?, ?);";
   // (?, ?, ?) : [writer, title, content]를 파라미터 값으로 받아온다는 의미
   db.query(
     sqlQuery,
-    [comment_name, comment_content, comment_price, comment_boardNum],
+    [
+      comment_name,
+      comment_content,
+      comment_price,
+      comment_boardNum,
+      comment_userId,
+    ],
     (err, result) => {
       // res.send(result);
       res.send("확인");
@@ -370,6 +437,17 @@ app.post("/detail", (req, res) => {
   });
 });
 
+app.post("/minidetail", (req, res) => {
+  console.log("/minidetail", req.body);
+  var comment_name = req.body.comment_name;
+
+  const sqlQuery =
+    "SELECT comment_name, comment_content, comment_price FROM comment_tbl WHERE comment_name = ?;";
+  db.query(sqlQuery, [comment_name], (err, result) => {
+    res.send(result);
+  });
+});
+
 app.post("/menudetail", (req, res) => {
   console.log("/menudetail", req.body);
   var menu_storeId = parseInt(req.body.menu_storeId);
@@ -396,6 +474,24 @@ app.post("/update", (req, res) => {
   });
 });
 
+app.post("/miniupdate", (req, res) => {
+  console.log("/miniupdate", req.body);
+  var comment_content = req.body.article.comment_content;
+  var comment_price = req.body.article.comment_price;
+  var comment_name = req.body.article.comment_name;
+
+  const sqlQuery =
+    "UPDATE comment_tbl SET comment_content = ?, comment_price = ? WHERE comment_name = ?;";
+  db.query(
+    sqlQuery,
+    [comment_content, comment_price, comment_name],
+    (err, result) => {
+      res.send(result);
+      console.log("Result = ", result);
+    }
+  );
+});
+
 app.post("/menuupdate", (req, res) => {
   console.log("/menuupdate", req.body);
   var menu_pictureUrl = req.body.article.menu_pictureUrl;
@@ -420,6 +516,20 @@ app.post("/delete", (req, res) => {
 
   const sqlQuery = "DELETE FROM board_tbl WHERE BOARD_NUM = ?;";
   db.query(sqlQuery, [num], (err, result) => {
+    console.log(err);
+    res.send(result);
+  });
+});
+
+app.post("/minidelete", (req, res) => {
+  const comment_name = req.body.comment_name;
+  const comment_userId = req.body.comment_userId;
+  console.log("/delete(id) = ", comment_name);
+  console.log("/delete(id) ---------------------------- = ", comment_userId);
+
+  const sqlQuery =
+    "DELETE FROM comment_tbl WHERE comment_name = ? AND comment_userId = ?;";
+  db.query(sqlQuery, [comment_name, comment_userId], (err, result) => {
     console.log(err);
     res.send(result);
   });

@@ -16,10 +16,13 @@ function Main({
 
   const navigate = useNavigate();
 
+  console.log('hosik query', number);
+
   const [article, setArticle] = useState({
+    comment_userId: window.sessionStorage.getItem('id'),
     comment_name: '',
     comment_content: '',
-    comment_price: ''
+    comment_price: '',
   });
 
   // 0 : 글쓰기 / 1 : 상세보기 / 2: 글수정
@@ -52,7 +55,7 @@ function Main({
   async function getList() {
     // alert('getList(actionMode) : ' + actionMode.mode);
     await axios
-      .get('http://localhost:8008/count', {})
+      .post('http://localhost:8008/minicount', { number: number })
       // get : url의 데이터 전달 방식을 지정한 것
       // (url에 요청 정보가 노출되는 위험이 있음)
       .then((res) => {
@@ -136,19 +139,18 @@ function Main({
   const handleUpdateForm = (e) => {
     // alert('handleUpdateForm(actionMode) : ' + actionMode.mode + ', ' + e.target.id);
     axios
-      .post('http://localhost:8008/detail', { num: e.target.id })
+      .post('http://localhost:8008/minidetail', { comment_name: e.target.id })
       .then((res) => {
         const { data } = res;
         console.log('updateForm : ', data);
         if (res.data.length > 0) {
           setArticle({
             ...article,
-            board_num: data[0].BOARD_NUM,
-            board_title: data[0].BOARD_TITLE,
-            board_writer: data[0].BOARD_WRITER,
-            board_content: data[0].BOARD_CONTENT,
-            board_location: data[0].BOARD_LOCATION,
-            board_date: data[0].BOARD_DATE
+            comment_num: data[0].comment_num,
+            comment_boardNum: data[0].comment_boardNum,
+            comment_name: data[0].comment_name,
+            comment_content: data[0].comment_content,
+            comment_price: data[0].comment_price
           });
 
           setActionMode({
@@ -182,7 +184,7 @@ function Main({
 
   const handleUpdate = () => {
     axios
-      .post('http://localhost:8008/update', {
+      .post('http://localhost:8008/miniupdate', {
         article: article
       })
       .then(() => {

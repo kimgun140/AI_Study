@@ -68,17 +68,28 @@ const BoardList = ({
               <th width='200'>수정 / 삭제</th>
             </tr>
             <tr>
-              <input
-                type='button'
-                value='로그아웃'
-                onClick={handleLogout}
-              />
-              <input
-                type='button'
-                value='그룹 생성'
-                onClick={handleadd}
-              // onClick1={handleInsert}
-              />
+              <td colSpan='7' align='center'>
+                <input
+                  type='button'
+                  value='로그아웃'
+                  onClick={handleLogout}
+                />
+                <Link to='/boardwritehosik?hosik'>
+                  <input
+                    type='button'
+                    value='그룹 생성'
+                    onClick={handleadd}
+                  // onClick1={handleInsert}
+                  />
+                </Link>
+                <Link to='/main/menuchicken'>
+                  <input
+                    type='button'
+                    value='가게 메뉴로'
+                  // onClick={handleInsert}
+                  />
+                </Link>
+              </td>
             </tr>
           </thead>
         </table>
@@ -120,10 +131,17 @@ const BoardList = ({
                   value='로그아웃'
                   onClick={handleLogout}
                 />
-                <Link to='/boardwrite?hosik'>
+                <Link to='/boardwritehosik?hosik'>
                   <input
                     type='button'
                     value='그룹 생성'
+                  // onClick={handleInsert}
+                  />
+                </Link>
+                <Link to='/main/menuchicken'>
+                  <input
+                    type='button'
+                    value='가게 메뉴로'
                   // onClick={handleInsert}
                   />
                 </Link>

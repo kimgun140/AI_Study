@@ -123,7 +123,7 @@ const BoardWrite = ({ handlelist }) => {
             </tr>
             <tr>
               <td colSpan='2' align='center'>
-                <Link to='/boardlist?hosik'>
+                <Link to='/boardlisthosik?hosik'>
                   <input
                     type='button'
                     value='글쓰기'
@@ -133,7 +133,7 @@ const BoardWrite = ({ handlelist }) => {
                 &nbsp;
                 <input type='reset' value='초기화' />
                 &nbsp;
-                <Link to='/boardlist?hosik'>
+                <Link to='/boardlisthosik?hosik'>
                   <input
                     type='button'
                     value='그룹 목록으로'

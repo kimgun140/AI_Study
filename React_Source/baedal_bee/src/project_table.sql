@@ -55,11 +55,32 @@ comment_content   varchar(500),
 comment_price    int(11) NOT NULL
 );
 
+ALTER TABLE board_tbl ADD board_store varchar(100) after board_date;
+
+ALTER TABLE comment_tbl ADD comment_userId varchar(100) after comment_price;
+
+ALTER TABLE menu_tbl ADD menu_store varchar(100) after menu_pictureUrl;
+
+ALTER TABLE storeInfo_tbl ADD store_query varchar(100) after store_deliveryFee;
+
+ALTER TABLE menu_tbl DROP menu_store;
+
+select * from comment_tbl;
+select * from board_tbl;
+select * from storeInfo_tbl;
+select * from order_tbl;
+select * from userinfo_tbl;
+select * from menu_tbl;
+
+-- 이 밑으로는 테스트 구문 (위의 테이블은 생성 후, 컬럼 추가하기)
+
 alter table order_tbl add foreign key (order_userId) references userInfo_tbl (user_id);
 
 alter table menu_tbl add foreign key (menu_storeId) references storeInfo_tbl (store_id);
 
 alter table comment_tbl add foreign key (comment_num) references board_tbl (board_num);
+
+SELECT menu_pictureUrl, menu_name, menu_price FROM menu_tbl, storeInfo_tbl WHERE storeInfo_tbl.store_Id = menu_tbl.menu_storeId;
 
 select * from  userInfo_tbl;
 desc userInfo_tbl;
@@ -92,6 +113,8 @@ SELECT board_num, board_title, board_write, board_location, DATE_FORMAT(BOARD_DA
 
 ALTER TABLE board_tbl ADD board_store varchar(100) after board_date;
 
+ALTER TABLE comment_tbl ADD comment_userId varchar(100) after comment_price;
+
 INSERT INTO menu_tbl (menu_pictureUrl, menu_name, menu_price) values (1, 1, 1);
 
 SELECT menu_pictureUrl, menu_name, menu_price FROM menu_tbl;
@@ -99,3 +122,10 @@ SELECT menu_pictureUrl, menu_name, menu_price FROM menu_tbl;
 UPDATE menu_tbl SET menu_pictureUrl = 0, menu_name = 324, menu_price = 555 WHERE menu_name = 123;
 
 UPDATE menu_tbl SET menu_pictureUrl = 1, menu_name = 555, menu_price = 111 WHERE menu_name = 324;
+
+SELECT COUNT(*) AS COUNT FROM board_tbl WHERE board_store = '?hosik';
+SELECT COUNT(*) AS COUNT FROM board_tbl WHERE board_store = '?bbq';
+
+INSERT INTO comment_tbl (comment_name, comment_content, comment_price, comment_boardNum) VALUES ('hhj1210', 0, 13, 28);
+
+DELETE FROM comment_tbl WHERE comment_name = 'SDASSA' and comment_userId = 'hhj1210';

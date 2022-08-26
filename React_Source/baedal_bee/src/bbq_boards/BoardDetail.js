@@ -1,71 +1,45 @@
-import React, { useState } from 'react';
-import Main from './hosik_miniBoards/Main';
-
+import React, { useState } from "react";
+import Main from "./bbq_miniBoards/Main";
+import "./BoardDetail.css";
 const BoardDetail = ({ article, handlelist }) => {
-  console.log('BoardDetail : ', article);
+  console.log("BoardDetail : ", article);
 
   const [number, setNumber] = useState(article.board_num);
 
   return (
-    <div>
-      <form>
-        <table border='1' width='700px' align='center'>
-          <thead>
-            <tr>
-              <td width='100px'>글번호</td>
-              <td align='left' width='600px'>
-                {article.board_num}
-              </td>
-            </tr>
-            <tr>
-              <td width='100px'>제목</td>
-              <td align='left' width='600px'>
-                {article.board_title}
-              </td>
-            </tr>
-            <tr>
-              <td width='100px'>작성자</td>
-              <td align='left' width='600px'>
-                {article.board_writer}
-              </td>
-            </tr>
-            <tr>
-              <td width='100px'>픽업 장소</td>
-              <td align='left' width='600px'>
-                {article.board_location}
-              </td>
-            </tr>
-            <tr>
-              <td width='100px'>작성날짜</td>
-              <td align='left' width='600px'>
-                {article.board_date}
-              </td>
-            </tr>
-            <tr>
-              <td width='100px'>글내용</td>
-              <td align='left' width='600px'>
-                {article.board_content}
-              </td>
-            </tr>
-            <tr>
-              <td colSpan='2' align='center'>
-                <input
-                  type='button'
-                  value='글목록'
-                  onClick={handlelist}
-                />
-                <div>
-                  <Main
-                    number={number}
-                  />
-                </div>
-              </td>
-            </tr>
-            <tr>
-            </tr>
-          </thead>
-        </table>
-      </form>
+    <div className="bd_div">
+      <div>
+        <tr>
+          <li>글번호</li>
+          <li align="left">{article.board_num}</li>
+        </tr>
+        <tr>
+          <li>제목</li>
+          <li align="left">{article.board_title}</li>
+        </tr>
+        <tr>
+          <li>작성자</li>
+          <li align="left">{article.board_writer}</li>
+        </tr>
+        <tr>
+          <li>픽업 장소</li>
+          <li align="left">{article.board_location}</li>
+        </tr>
+        <tr>
+          <li>작성날짜</li>
+          <li align="left">{article.board_date}</li>
+        </tr>
+        <tr>
+          <li>글내용</li>
+          <li align="left">{article.board_content}</li>
+        </tr>
+        <tr>
+          <input type="button" value="글목록" onClick={handlelist} />
+          <div>
+            <Main number={number} />
+          </div>
+        </tr>
+      </div>
     </div>
   );
 };

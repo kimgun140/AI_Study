@@ -21,12 +21,10 @@ function Main() {
   const query_m = location.search;
 
   const [article, setArticle] = useState({
-    board_num: 0,
-    board_title: '',
-    board_writer: '',
-    board_content: '',
-    board_location: '',
-    board_date: ''
+    comment_num: 0,
+    comment_name: '',
+    comment_content: '',
+    comment_price: ''
   });
 
   // 0 : 글쓰기 / 1 : 상세보기 / 2: 글수정
@@ -45,7 +43,7 @@ function Main() {
     console.log('window.sessionStorage(login_id) : ', login_id);
     if (login_id === null) {
       alert('게시판 사용을 위해서는 로그인이 필요합니다.');
-      navigate('/')
+      navigate('/login')
     }
   }, []);
 
@@ -59,7 +57,7 @@ function Main() {
   async function getList() {
     // alert('getList(actionMode) : ' + actionMode.mode);
     await axios
-      .get('http://localhost:8008/count', {})
+      .post('http://localhost:8008/count', { query_m: query_m })
       // get : url의 데이터 전달 방식을 지정한 것
       // (url에 요청 정보가 노출되는 위험이 있음)
       .then((res) => {
@@ -74,6 +72,7 @@ function Main() {
           console.log('getArticleCount(page_link) : ', page_link);
           setPageLink(page_link);
         }
+        console.log('count-----------', article_count);
       })
       .catch((e) => {
         console.error(e);

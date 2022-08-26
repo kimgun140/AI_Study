@@ -11,7 +11,7 @@ export const Loading = () => {
 
   setTimeout(() => {
     navigate("/Loginform");
-  }, 1000000);
+  }, 1000);
   return (
     <div className="loadingform">
       <div></div>

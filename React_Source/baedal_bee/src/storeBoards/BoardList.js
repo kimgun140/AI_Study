@@ -43,7 +43,7 @@ const BoardList = ({
               </th>
             </tr>
             <tr>
-              <td>
+              <td colSpan='7' align='center'>
                 <input
                   type="button"
                   value="로그아웃"
@@ -62,10 +62,10 @@ const BoardList = ({
           <thead>
             <tr>
               {/* <th width="60">번호</th> */}
-              <th width="240">메뉴 사진</th>
-              <th width="100">메뉴명</th>
-              <th width="100">메뉴 가격</th>
-              <th width="200">
+              <th width="120">메뉴 사진</th>
+              <th width="200">메뉴명</th>
+              <th width="80">메뉴 가격</th>
+              <th width="50">
                 삭제
               </th>
             </tr>

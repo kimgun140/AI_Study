@@ -50,7 +50,7 @@ const BoardWrite = ({ handlelist }) => {
     }
 
     axios
-      .post("http://localhost:8008/bbqinsert", {
+      .post("http://localhost:8008/insert", {
         title: titleRef.current.value,
         writer: window.sessionStorage.getItem("id"),
         content: contentRef.current.value,
@@ -72,7 +72,7 @@ const BoardWrite = ({ handlelist }) => {
 
   return (
     <div className="write">
-      <h1>호식이 두 마리 치킨 그룹방</h1>
+      <h1>BBQ 그룹방</h1>
       <form>
         <table border="1" width="700px" align="center">
           <thead>
@@ -131,13 +131,13 @@ const BoardWrite = ({ handlelist }) => {
             </tr>
             <tr>
               <td colSpan="2" align="center">
-                <Link to="/boardlist?bbq">
+                <Link to="/boardlistbbq?bbq">
                   <input type="button" value="글쓰기" onClick={handleInsert} />
                 </Link>
                 &nbsp;
                 <input type="reset" value="초기화" />
                 &nbsp;
-                <Link to="/boardlist?bbq">
+                <Link to="/boardlistbbq?bbq">
                   <input type="button" value="그룹 목록으로" />
                 </Link>
               </td>

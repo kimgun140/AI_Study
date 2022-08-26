@@ -1,0 +1,15 @@
+.bd_div{  position: relative;
+    margin: 0 auto;
+    border: solid 3px;
+    border-radius: 20px;
+    width: 385px;
+    height: 803px;
+    background-color: skyblue;
+    /* z-index: -1; */
+   }
+   /* table{
+    border: none;
+   } */
+li{
+    display: inline;
+}

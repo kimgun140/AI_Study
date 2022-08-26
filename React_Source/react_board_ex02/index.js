@@ -4,7 +4,7 @@ const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const PORT = process.env.port || 8008;
 const cors = require("cors");
-
+const iconv = require("iconv-lite");
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -43,7 +43,15 @@ const upload = multer({
     filename(req, file, done) {
       //파일 이름을 어떻게 설정할 것인가 오리지날 파일 이름을 쓰고 싶으면 그냥 저장하고, 같은 이름이 있으면 확장자를 제외한 이름만 추출하고 현재 시간을 가져오고 다시 확장자를 붙여준다.
       const ext = path.extname(file.originalname);
-      done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+      done(
+        null,
+        path.basename(
+          iconv.decode(file.originalname, "utf-8").toString(), //한글깨졌을 때  수정해주는거
+          ext
+        ) +
+          Date.now() +
+          ext
+      );
     },
   }),
   limits: { fileSize: 10 * 1024 * 1024 },

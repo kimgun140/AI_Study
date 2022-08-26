@@ -27,9 +27,15 @@ const BoardArticle = ({
   console.log("BoardArticle =>", article);
 
   return (
-    <tr>
+    <tr align="center">
       {/* <td>{article.menu_pictureUrl}</td> */}
-      <td><img width='200px' src={image} /></td>
+      <td>
+        <img width='100px' src={image} />
+        <input
+          type='text'
+          value={window.sessionStorage.getItem('id')}
+        />
+      </td>
       <td>
         {/* <a href="#" id={article.menu_name} onClick={handledetail}> */}
         {article.menu_name}

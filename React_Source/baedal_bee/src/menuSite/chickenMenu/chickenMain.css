@@ -1,0 +1,13 @@
+.zzz{
+    position: relative;
+    margin: 0 auto;
+    border: solid 3px;
+    border-radius: 20px;
+    width: 385px;
+    height: 803px;
+    text-align: center;
+    /* background-color: antiquewhite; */
+    overflow: hidden;
+    background-color: #f9e9aa;
+    
+}

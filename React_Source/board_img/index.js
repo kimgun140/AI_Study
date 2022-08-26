@@ -4,7 +4,7 @@ const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const PORT = process.env.port || 8008;
 const cors = require("cors");
-
+const iconv = require("iconv-lite");
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -40,14 +40,22 @@ const upload = multer({
     },
     filename(req, file, done) {
       const ext = path.extname(file.originalname);
-      done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+      done(
+        null,
+        path.basename(
+          iconv.decode(file.originalname, "utf-8").toString(), //한글깨졌을 때  수정해주는거
+          ext
+        ) +
+          Date.now() +
+          ext
+      );
     },
   }),
   limits: { fileSize: 10 * 1024 * 1024 },
 });
 
 // 이미지가 저장된 경로를 static으로 지정하면 불러올 수 있다.
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static("uploads")); //외부에서 db로 이미지를 전송할 때는 스태틱으로 해야함
 
 app.post("/insert", upload.single("image"), (req, res) => {
   console.log("/insert", req.file, req.body);

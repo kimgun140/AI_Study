@@ -3,20 +3,25 @@ import axios from 'axios';
 import './BoardWrite.scss'
 import { Link } from 'react-router-dom';
 
-const BoardWrite = ({ handlelist, number }) => {
+const BoardWrite = ({ handlelist, number, article }) => {
   const nameRef = useRef();
   const contentRef = useRef();
   const priceRef = useRef();
   const numRef = useRef();
-
+  const userIdRef = useRef();
 
   const handleInsert = () => {
     console.log('handleInsert : ', nameRef.current.value);
     console.log('handleInsert : ', contentRef.current.value);
     console.log('handleInsert : ', priceRef.current.value);
 
+    // if (article.comment_userId === window.sessionStorage.getItem('id')) {
+    //   alert('주문내역은 하나만 등록이 가능합니다.');
+    //   return false;
+    // }
+
     if (nameRef.current.value === '' || nameRef.current.value === undefined) {
-      alert('게시글의 작성자을 입력해주세요.');
+      alert('주문자를 입력해주세요.');
       nameRef.current.focus();
       return false;
     }
@@ -35,7 +40,7 @@ const BoardWrite = ({ handlelist, number }) => {
       const str = priceRef.current.value;
       for (var i = 0; i < str.length; i++) {
         const ch = str.substring(i, i + 1);
-        if (!((ch >= "0" && ch <= "9") || (ch >= "a" && ch <= "z")
+        if (!(ch >= "0" && ch <= "9") || ((ch >= "a" && ch <= "z")
           || (ch >= "A" && ch <= "Z"))) {
           alert('음식의 가격은 숫자로만 입력해주세요.');
           priceRef.current.focus();
@@ -49,7 +54,8 @@ const BoardWrite = ({ handlelist, number }) => {
         comment_name: nameRef.current.value,
         comment_content: contentRef.current.value,
         comment_price: priceRef.current.value,
-        comment_boardNum: numRef.current.value
+        comment_boardNum: numRef.current.value,
+        comment_userId: userIdRef.current.value
       })
       .then((res) => {
         console.log('handleInsert : ', res);
@@ -92,6 +98,25 @@ const BoardWrite = ({ handlelist, number }) => {
                   ref={nameRef}
                   placeholder='작성자를 입력하세요.'
                 />
+                <input
+                  type='hidden'
+                  name='userId'
+                  size='68'
+                  ref={userIdRef}
+                  value={window.sessionStorage.getItem('id')}
+                />
+                {/* <b>
+                  <input
+                    type='text'
+                    name='number'
+                    size='68'
+                    ref={nameRef}
+                    value={window.sessionStorage.getItem('id')}
+                  />
+                </b> */}
+                {/* <div ref={nameRef}>
+                  <b>{window.sessionStorage.getItem('id')}</b>
+                </div> */}
                 <input
                   type='hidden'
                   name='number'

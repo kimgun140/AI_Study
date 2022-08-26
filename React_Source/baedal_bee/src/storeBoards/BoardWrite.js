@@ -7,7 +7,7 @@ const BoardWrite = ({ handlelist }) => {
   const nameRef = useRef();
   const priceRef = useRef();
   // const idRef = useRef();
-  // const storeIdRef = useRef();
+  const storeIdRef = useRef();
 
   const [image_name, setImage_name] = useState(""); //업로드할 파일 정보를 저장하기위한 문장이다.
 
@@ -54,7 +54,7 @@ const BoardWrite = ({ handlelist }) => {
         // 파일 첨부할 떄 배열로 첨부한 이미지 파일을  이.타겟.파일이름을 가져오기로 설정해야 가져온다.
         "http://localhost:8008/menuinsert",
         {
-          menu_storeId: 0,
+          menu_storeId: storeIdRef.current.value,
           menu_pictureUrl: image_name,
           menu_name: nameRef.current.value,
           menu_price: priceRef.current.value
@@ -118,6 +118,12 @@ const BoardWrite = ({ handlelist }) => {
                 ref={nameRef}
                 placeholder="메뉴명을 입력하세요"
               ></input>
+              <input
+                type="text"
+                name="storeId"
+                ref={storeIdRef}
+                value={window.sessionStorage.getItem('id')}
+              />
             </td>
           </tr>
           {/* <tr>

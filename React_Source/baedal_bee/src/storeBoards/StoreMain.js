@@ -16,7 +16,7 @@ function StoreMain() {
 
   const [article, setArticle] = useState({
     //하나의 글을 저장하기위한 스테이트 보드 이미지를 저장할거기 때문에 보드 이미지를 추가했다. 보드테이블에서 한 줄을 저장하기 때문에 배열로 사용해서 저장한다.
-    menu_storeId: '',
+    menu_storeId: window.sessionStorage.getItem('id'),
     menu_name: '',
     menu_price: '',
     menu_pictureUrl: ''
@@ -71,6 +71,7 @@ function StoreMain() {
         page_num: page_num,
         page_size: page_size,
         article_count: article_count,
+        menu_storeId: article.menu_storeId
       })
       .then((res) => {
         const { data } = res;

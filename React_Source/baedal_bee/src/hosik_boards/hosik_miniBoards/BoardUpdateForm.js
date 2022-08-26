@@ -24,29 +24,29 @@ const BoardUpdateForm = ({ article, setarticle, handleupdate }) => {
         <table border='1' width='700px' align='center'>
           <thead>
             <tr>
-              <td width='100px'>제목</td>
+              <td width='100px'>주문자</td>
+              <td align='left' width='600px'>
+                {article.comment_name}
+              </td>
+            </tr>
+            <tr>
+              <td width='100px'>주문내역</td>
               <td align='left' width='600px'>
                 <input
                   type='text'
-                  name='board_title'
-                  defaultValue={article.board_title}
+                  name='comment_content'
+                  defaultValue={article.comment_content}
                   onChange={onChange}
                 />
               </td>
             </tr>
             <tr>
-              <td width='100px'>작성자</td>
-              <td align='left' width='600px'>
-                {article.board_writer}
-              </td>
-            </tr>
-            <tr>
-              <td width='100px'>글내용</td>
+              <td width='100px'>가격</td>
               <td align='left' width='600px'>
                 <input
                   type='text'
-                  name='board_content'
-                  defaultValue={article.board_content}
+                  name='comment_price'
+                  defaultValue={article.comment_price}
                   onChange={onChange}
                 />
               </td>
